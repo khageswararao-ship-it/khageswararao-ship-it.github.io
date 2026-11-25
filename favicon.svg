@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#050508"/>
+    </linearGradient>
+    <linearGradient id="favRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a54"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </linearGradient>
+    <filter id="favGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="url(#favBg)"/>
+  <rect x="3" y="3" width="122" height="122" rx="29" stroke="url(#favRed)" stroke-width="3" fill="none"/>
+  <!-- Central Cyber Hexagon -->
+  <polygon points="64,22 100,43 100,85 64,106 28,85 28,43" stroke="rgba(255,42,84,0.4)" stroke-width="2" fill="rgba(255,42,84,0.08)"/>
+  <!-- Bold RK Monogram -->
+  <text x="64" y="78" font-family="'Orbitron', -apple-system, sans-serif" font-size="44" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">RK</text>
+  <!-- Pulsing Red Dot -->
+  <circle cx="98" cy="30" r="9" fill="#ff2a54" filter="url(#favGlow)"/>
+  <circle cx="98" cy="30" r="4" fill="#ffffff"/>
+</svg>

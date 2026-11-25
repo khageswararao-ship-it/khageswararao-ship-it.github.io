@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="premGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F5D4"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <filter id="premGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <rect width="100" height="100" rx="26" fill="#070A14"/>
+  <rect x="2" y="2" width="96" height="96" rx="24" stroke="url(#premGrad)" stroke-width="2.5" fill="none" opacity="0.6"/>
+  <!-- Shield Outline -->
+  <path d="M50 16L78 28V48C78 66 66 80 50 86C34 80 22 66 22 48V28L50 16Z" fill="url(#premGrad)" filter="url(#premGlow)"/>
+  <!-- Lightning Bolt -->
+  <path d="M53 26L34 52H48L45 74L66 46H52L55 26H53Z" fill="#070A14"/>
+  <path d="M52 28L37 50H49L47 70L63 48H51L54 28H52Z" fill="#FFD166"/>
+</svg>

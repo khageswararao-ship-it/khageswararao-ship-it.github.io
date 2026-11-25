@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Ravada Khageswararao — Frontend & Mobile Software Engineer | Fintech Architect</title>
   
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <!-- High-Res Favicons (SVG, PNG, ICO) with cache-busting -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=3">
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=3">
+  <link rel="shortcut icon" href="favicon.ico?v=3">
+  <link rel="apple-touch-icon" href="favicon.png?v=3">
 
   <!-- SEO & Google Search Console Verification -->
   <meta name="description" content="Official portfolio of Ravada Khageswararao — Frontend & Mobile Software Engineer and Fintech Systems Architect. Specializing in React 18, Kotlin (Android SDK 36), Vite, Web Crypto AES-256, and interactive 3D web systems.">
-  <meta name="keywords" content="Ravada Khageswararao, Khageswar Rao, Frontend Engineer, Android Developer, Sankalp HRMS, LendSwift, Harbour Link, PayPulse Neo">
+  <meta name="keywords" content="Ravada Khageswararao, Khageswar Rao, Frontend Engineer, Android Developer, Sankalp HRMS, LendSwift, Harbour Link, Premium Pay">
   <meta name="author" content="Ravada Khageswararao">
   <meta property="og:title" content="Ravada Khageswararao — Frontend & Mobile Engineer">
   <meta property="og:description" content="Explore featured 3D projects, enterprise SPAs, and native Android applications built by Ravada Khageswararao.">
@@ -60,7 +63,7 @@
     :root {
       --bg-dark: #050508;
       --bg-surface: rgba(13, 13, 20, 0.75);
-      --bg-card: rgba(18, 18, 26, 0.82);
+      --bg-card: rgba(18, 18, 26, 0.85);
       --bg-card-hover: rgba(28, 28, 40, 0.95);
       --crimson-neon: #ff2a54;
       --crimson-glow: rgba(255, 42, 84, 0.75);
@@ -93,6 +96,50 @@
     }
 
     /* ========================================================
+       0. CUSTOM CYBER CURSOR FOLLOWER
+       ======================================================== */
+    .cyber-cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--crimson-neon);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999999;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
+      box-shadow: 0 0 12px var(--crimson-neon);
+    }
+
+    .cyber-cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid rgba(255, 42, 84, 0.6);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999998;
+      transform: translate(-50%, -50%);
+      transition: transform 0.08s ease-out, width 0.25s, height 0.25s, border-color 0.25s;
+    }
+
+    .cyber-cursor-ring.active {
+      width: 55px;
+      height: 55px;
+      border-color: #ffffff;
+      background: rgba(255, 42, 84, 0.15);
+      box-shadow: 0 0 25px rgba(255, 42, 84, 0.5);
+    }
+
+    @media (hover: none) {
+      .cyber-cursor-dot, .cyber-cursor-ring { display: none !important; }
+    }
+
+    /* ========================================================
        1. CINEMATIC PRELOADER SCREEN (Exact Match to Video Frame 1!)
        ======================================================== */
     .preloader {
@@ -119,9 +166,9 @@
 
     .preloader-bg-glow {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 42, 84, 0.25) 0%, transparent 70%);
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, rgba(255, 42, 84, 0.3) 0%, transparent 70%);
       filter: blur(80px);
       pointer-events: none;
     }
@@ -138,7 +185,7 @@
 
     .preloader-counter {
       font-family: var(--font-tech);
-      font-size: 48px;
+      font-size: 52px;
       font-weight: 900;
       letter-spacing: 2px;
       color: #ffffff;
@@ -159,7 +206,7 @@
 
     .preloader-center-content {
       text-align: center;
-      max-width: 800px;
+      max-width: 820px;
       padding: 0 24px;
       z-index: 2;
     }
@@ -208,7 +255,7 @@
       transition: width 0.05s linear;
     }
 
-    /* Ambient Canvas for Floating Crimson Fire Embers */
+    /* Live Canvas for Ambient Crimson Fire Embers */
     #ambient-canvas {
       position: fixed;
       top: 0;
@@ -217,6 +264,39 @@
       height: 100%;
       pointer-events: none;
       z-index: 1;
+    }
+
+    /* Cyber Perspective Grid (Tron Floor Animation) */
+    .cyber-grid-floor {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 380px;
+      perspective: 450px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.22;
+      overflow: hidden;
+    }
+
+    .grid-plane {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: -50%;
+      bottom: -60%;
+      background-image: 
+        linear-gradient(to right, rgba(255, 42, 84, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 42, 84, 0.4) 1px, transparent 1px);
+      background-size: 60px 60px;
+      transform: rotateX(75deg);
+      animation: gridScroll 12s linear infinite;
+    }
+
+    @keyframes gridScroll {
+      0% { transform: rotateX(75deg) translateY(0); }
+      100% { transform: rotateX(75deg) translateY(60px); }
     }
 
     /* Background Ambient Radial Glows */
@@ -244,18 +324,18 @@
     }
 
     /* ========================================================
-       2. 3D SPINNING PROPELLER / GEOMETRIC STAR (Frames 5 & 20)
+       2. 3D SPINNING PROPELLER & SCI-FI GYRO RINGS (Frames 5 & 20)
        ======================================================== */
     .spinning-geometric-wrapper {
       position: absolute;
       top: 160px;
-      right: 5%;
+      right: 4%;
       width: 520px;
       height: 520px;
       pointer-events: none;
       z-index: 2;
       perspective: 1200px;
-      opacity: 0.65;
+      opacity: 0.7;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -274,9 +354,9 @@
       top: 50%;
       left: 50%;
       transform-origin: center center;
-      background: linear-gradient(135deg, rgba(35, 35, 50, 0.9), rgba(12, 12, 18, 0.95));
-      border: 1.5px solid rgba(255, 42, 84, 0.65);
-      box-shadow: 0 0 35px rgba(255, 42, 84, 0.35), inset 0 0 15px rgba(255, 42, 84, 0.2);
+      background: linear-gradient(135deg, rgba(35, 35, 50, 0.92), rgba(12, 12, 18, 0.98));
+      border: 1.5px solid rgba(255, 42, 84, 0.7);
+      box-shadow: 0 0 35px rgba(255, 42, 84, 0.4), inset 0 0 15px rgba(255, 42, 84, 0.25);
       backdrop-filter: blur(10px);
     }
 
@@ -308,19 +388,55 @@
       margin-left: -65px;
       border-radius: 50%;
       background: radial-gradient(circle, #ff2a54 20%, #991b1b 65%, #050508 100%);
-      box-shadow: 0 0 60px #ff2a54, 0 0 120px rgba(255, 42, 84, 0.5);
+      box-shadow: 0 0 60px #ff2a54, 0 0 120px rgba(255, 42, 84, 0.6);
       border: 2px solid #ffffff;
       animation: pulseCoreGlow 2.5s infinite alternate ease-in-out;
       transform: translateZ(30px);
     }
 
+    /* Concentric Sci-Fi Gyro Gimbal Rings */
+    .gyro-ring-outer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 460px;
+      height: 460px;
+      margin-top: -230px;
+      margin-left: -230px;
+      border: 1.5px dashed rgba(255, 42, 84, 0.5);
+      border-radius: 50%;
+      animation: spinGyroOuter 15s linear infinite;
+      transform-style: preserve-3d;
+    }
+
+    .gyro-ring-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 320px;
+      height: 320px;
+      margin-top: -160px;
+      margin-left: -160px;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.3);
+      animation: spinGyroInner 10s linear infinite reverse;
+      transform-style: preserve-3d;
+    }
+
     @keyframes spin3DPropeller {
-      0% {
-        transform: rotateX(25deg) rotateY(20deg) rotateZ(0deg);
-      }
-      100% {
-        transform: rotateX(25deg) rotateY(20deg) rotateZ(360deg);
-      }
+      0% { transform: rotateX(25deg) rotateY(20deg) rotateZ(0deg); }
+      100% { transform: rotateX(25deg) rotateY(20deg) rotateZ(360deg); }
+    }
+
+    @keyframes spinGyroOuter {
+      0% { transform: rotateX(65deg) rotateY(30deg) rotateZ(0deg); }
+      100% { transform: rotateX(65deg) rotateY(30deg) rotateZ(360deg); }
+    }
+
+    @keyframes spinGyroInner {
+      0% { transform: rotateX(-50deg) rotateY(-40deg) rotateZ(0deg); }
+      100% { transform: rotateX(-50deg) rotateY(-40deg) rotateZ(360deg); }
     }
 
     @keyframes pulseCoreGlow {
@@ -329,12 +445,12 @@
         transform: translateZ(20px) scale(0.95);
       }
       100% {
-        box-shadow: 0 0 80px #ff2a54, 0 0 140px rgba(255, 42, 84, 0.8);
+        box-shadow: 0 0 80px #ff2a54, 0 0 140px rgba(255, 42, 84, 0.85);
         transform: translateZ(40px) scale(1.08);
       }
     }
 
-    /* Section Divider 3D Spinning Shuriken (Between Sections) */
+    /* Section Floating Shuriken Divider */
     .section-floating-star {
       position: absolute;
       left: 50%;
@@ -398,14 +514,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(13, 13, 20, 0.8);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      background: rgba(13, 13, 20, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 40px;
       padding: 12px 28px;
       margin-top: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 42, 84, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 42, 84, 0.15);
       transition: var(--transition-smooth);
     }
 
@@ -418,16 +534,26 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .nav-logo-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--crimson-neon);
-      border-radius: 50%;
-      box-shadow: 0 0 14px var(--crimson-neon);
-      animation: pulseGlow 1.8s infinite ease-in-out;
+    .nav-favicon-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255, 42, 84, 0.12);
+      border: 1px solid var(--crimson-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(255, 42, 84, 0.4);
+    }
+
+    .nav-favicon-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .nav-menu {
@@ -627,6 +753,7 @@
       background: linear-gradient(135deg, rgba(255, 42, 84, 0.25), rgba(15, 15, 22, 0.9));
       box-shadow: 0 0 50px rgba(255, 42, 84, 0.45);
       border: 1.5px solid rgba(255, 42, 84, 0.5);
+      transition: transform 0.4s ease;
     }
 
     .hero-portrait-inner {
@@ -658,7 +785,7 @@
       pointer-events: none;
     }
 
-    /* Diagonal Neon Laser Circuit Lines (Exact Match to Video Frames 4, 6, 8) */
+    /* Diagonal Neon Laser Circuit Lines */
     .laser-circuit-svg {
       position: absolute;
       top: -30px;
@@ -701,17 +828,8 @@
       animation: floatTag 3s ease-in-out infinite alternate;
     }
 
-    .hud-tag-1 {
-      top: 40px;
-      left: -35px;
-      animation-delay: 0s;
-    }
-
-    .hud-tag-2 {
-      bottom: 50px;
-      right: -25px;
-      animation-delay: 1.5s;
-    }
+    .hud-tag-1 { top: 40px; left: -35px; animation-delay: 0s; }
+    .hud-tag-2 { bottom: 50px; right: -25px; animation-delay: 1.5s; }
 
     @keyframes floatTag {
       0% { transform: translateY(0); }
@@ -769,7 +887,7 @@
 
     /* ========================================================
        7. 3D CYLINDRICAL COVERFLOW CAROUSEL ("PROJECTS.")
-          (Exact Match to Video Frames 25, 28, 32!)
+          WITH OFFICIAL LOGOS & INTERACTIVE 3D PARALLAX TILT
        ======================================================== */
     .section-container {
       padding: 80px 0;
@@ -808,7 +926,7 @@
     .carousel-3d-viewport {
       position: relative;
       width: 100%;
-      height: 580px;
+      height: 600px;
       margin: 0 auto;
       perspective: 1400px;
       perspective-origin: 50% 50%;
@@ -820,8 +938,8 @@
 
     .carousel-3d-stage {
       position: relative;
-      width: min(420px, 86vw);
-      height: 520px;
+      width: min(430px, 88vw);
+      height: 540px;
       transform-style: preserve-3d;
       display: flex;
       align-items: center;
@@ -835,12 +953,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 24px;
+      border-radius: 26px;
       background: rgba(18, 18, 28, 0.88);
       border: 1.5px solid rgba(255, 255, 255, 0.12);
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -851,7 +969,7 @@
       user-select: none;
     }
 
-    /* Center Active Card: High Glow & Sharp Border */
+    /* Center Active Card: High Glow, Neon Border Sweep */
     .carousel-3d-card.active-center {
       border-color: rgba(255, 42, 84, 0.85);
       box-shadow: 0 0 45px rgba(255, 42, 84, 0.5), 0 25px 60px rgba(0, 0, 0, 0.85);
@@ -859,27 +977,59 @@
 
     .project-image-box {
       width: 100%;
-      height: 220px;
+      height: 230px;
       position: relative;
       overflow: hidden;
       background: #0a0a10;
     }
 
-    .project-image-box img {
+    .project-image-box img.project-cover-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.6s ease;
     }
 
-    .carousel-3d-card:hover .project-image-box img {
+    .carousel-3d-card:hover .project-image-box img.project-cover-img {
       transform: scale(1.05);
     }
 
     .project-image-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(18, 18, 28, 0.95) 100%);
+      background: linear-gradient(180deg, transparent 35%, rgba(18, 18, 28, 0.98) 100%);
+    }
+
+    /* Floating Project Official Logo Badge (New User Feature!) */
+    .project-logo-badge {
+      position: absolute;
+      bottom: -15px;
+      left: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 18px;
+      background: rgba(10, 10, 18, 0.92);
+      border: 2px solid var(--crimson-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 42, 84, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .carousel-3d-card:hover .project-logo-badge {
+      transform: scale(1.1) translateY(-2px);
+      border-color: var(--crimson-neon);
+      box-shadow: 0 0 30px var(--crimson-neon);
+    }
+
+    .project-logo-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .card-badge-pill {
@@ -896,6 +1046,7 @@
       padding: 5px 12px;
       border-radius: 20px;
       backdrop-filter: blur(8px);
+      z-index: 5;
     }
 
     .card-year-tag {
@@ -908,10 +1059,41 @@
       font-size: 10px;
       padding: 5px 10px;
       border-radius: 20px;
+      z-index: 5;
+    }
+
+    /* Animated Equalizer Waveform Bars (for Audio & Soundbox cards) */
+    .audio-equalizer-bars {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 22px;
+      z-index: 8;
+    }
+
+    .eq-bar {
+      width: 4px;
+      background: var(--crimson-neon);
+      border-radius: 2px;
+      box-shadow: 0 0 8px var(--crimson-neon);
+      animation: eqBounce 0.8s ease-in-out infinite alternate;
+    }
+
+    .eq-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+    .eq-bar:nth-child(2) { height: 95%; animation-delay: 0.3s; }
+    .eq-bar:nth-child(3) { height: 40%; animation-delay: 0.2s; }
+    .eq-bar:nth-child(4) { height: 80%; animation-delay: 0.4s; }
+
+    @keyframes eqBounce {
+      0% { height: 25%; }
+      100% { height: 100%; }
     }
 
     .project-card-content {
-      padding: 22px 24px;
+      padding: 30px 24px 22px 24px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -942,7 +1124,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .tech-chip {
@@ -1197,15 +1379,9 @@
     }
 
     @keyframes pendulumSwing {
-      0% {
-        transform: rotate(5.5deg);
-      }
-      50% {
-        transform: rotate(-5.5deg);
-      }
-      100% {
-        transform: rotate(5.5deg);
-      }
+      0% { transform: rotate(5.5deg); }
+      50% { transform: rotate(-5.5deg); }
+      100% { transform: rotate(5.5deg); }
     }
 
     /* ========================================================
@@ -1503,9 +1679,14 @@
 </head>
 <body>
 
+  <!-- Custom Cyber Cursor -->
+  <div class="cyber-cursor-dot" id="cursorDot"></div>
+  <div class="cyber-cursor-ring" id="cursorRing"></div>
+
   <!-- ========================================================
        1. CINEMATIC PRELOADER SCREEN (Exact Match to Video Frame 1!)
-       ======================================================== -->
+       ======================================================== */
+  -->
   <div class="preloader" id="preloader">
     <div class="preloader-bg-glow"></div>
     <div class="preloader-top-bar">
@@ -1525,12 +1706,19 @@
   <!-- Live Canvas for Ambient Crimson Fire Sparks & Embers -->
   <canvas id="ambient-canvas"></canvas>
 
+  <!-- Cyber Tron Grid Perspective Floor -->
+  <div class="cyber-grid-floor">
+    <div class="grid-plane"></div>
+  </div>
+
   <!-- Ambient Radial Glows -->
   <div class="bg-glow-top"></div>
   <div class="bg-glow-mid"></div>
 
-  <!-- 3D Spinning Propeller / Geometric Star (Exact Match to Video Frame 5 & 20!) -->
+  <!-- 3D Spinning Propeller & Sci-Fi Gyro Gimbal Rings (Frames 5 & 20) -->
   <div class="spinning-geometric-wrapper">
+    <div class="gyro-ring-outer"></div>
+    <div class="gyro-ring-inner"></div>
     <div class="spinning-propeller-3d">
       <div class="propeller-blade blade-h"></div>
       <div class="propeller-blade blade-v"></div>
@@ -1547,7 +1735,9 @@
     <header>
       <nav class="navbar slide-up" id="navbar">
         <a href="#hero" class="nav-logo">
-          <div class="nav-logo-dot"></div>
+          <div class="nav-favicon-badge">
+            <img src="favicon.svg" alt="RK Monogram Favicon">
+          </div>
           <span>KHAGESWARARAO.</span>
         </a>
         <ul class="nav-menu">
@@ -1599,9 +1789,9 @@
 
       <!-- Right Hero Column: Glowing Portrait + Diagonal Laser Circuits -->
       <div class="hero-visual slide-up delay-2">
-        <div class="hero-portrait-stage">
+        <div class="hero-portrait-stage" id="heroPortraitStage">
           
-          <!-- Diagonal Laser Circuit Lines Cutting Across Screen (Video Frame 4) -->
+          <!-- Diagonal Laser Circuit Lines Cutting Across Screen -->
           <svg class="laser-circuit-svg" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="laser-line" d="M 0 120 L 220 280 L 320 240 L 480 380 L 520 540" />
             <path class="laser-line" d="M 480 80 L 340 180 L 160 380 L 60 500" style="animation-delay: 1.5s;" />
@@ -1649,12 +1839,12 @@
 
     <!-- ========================================================
          5. 3D CYLINDRICAL COVERFLOW CAROUSEL ("PROJECTS.")
-            (Exact Match to Video Frames 25, 28, 32!)
+            WITH OFFICIAL PROJECT LOGOS & INTERACTIVE 3D PARALLAX
          ======================================================== -->
     <section class="section-container" id="projects">
       <div class="section-header-block slide-up">
         <span class="section-tagline">FEATURED WORK</span>
-        <h2 class="section-main-title">PROJECTS.</h2>
+        <h2 class="section-main-title scramble-text" data-original="PROJECTS.">PROJECTS.</h2>
       </div>
 
       <!-- 3D Perspective Coverflow Carousel -->
@@ -1664,13 +1854,18 @@
           <!-- 1. LendSwift Multi-Step Loan Application -->
           <div class="carousel-3d-card" data-index="0" onclick="cardClicked(0)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#1e1b4b,#312e81);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#ff2a54" stroke-width="1.5">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#0f172a,#1e1b4b);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#ff2a54" stroke-width="1.5">
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                 </svg>
-                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#cbd5e1;letter-spacing:1.5px;">8-STEP FINTECH APPLICATION</div>
               </div>
               <div class="project-image-overlay"></div>
+              
+              <!-- OFFICIAL LENDSWIFT LOGO BADGE -->
+              <div class="project-logo-badge" title="LendSwift Official Logo">
+                <img src="assets/lendswift_logo.svg" alt="LendSwift Official Logo">
+              </div>
+
               <span class="card-badge-pill">Fintech Architect</span>
               <span class="card-year-tag">2026</span>
             </div>
@@ -1698,16 +1893,21 @@
           <!-- 2. Sankalp HRMS -->
           <div class="carousel-3d-card" data-index="1" onclick="cardClicked(1)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#064e3b,#065f46);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#022c22,#064e3b);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                   <circle cx="9" cy="7" r="4"/>
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                   <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                 </svg>
-                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#a7f3d0;letter-spacing:1.5px;">GOOGLE-INDEXED SPA</div>
               </div>
               <div class="project-image-overlay"></div>
+
+              <!-- OFFICIAL SANKALP HRMS LOGO BADGE -->
+              <div class="project-logo-badge" title="Sankalp HRMS Official Logo">
+                <img src="assets/sankalp_logo.png" alt="Sankalp HRMS Official Logo">
+              </div>
+
               <span class="card-badge-pill" style="color: #10b981; border-color: rgba(16,185,129,0.5);">Google Search Indexed</span>
               <span class="card-year-tag">2025</span>
             </div>
@@ -1731,11 +1931,17 @@
             </div>
           </div>
 
-          <!-- 3. Harbour Link -->
+          <!-- 3. Harbour Link Maritime Radar -->
           <div class="carousel-3d-card" data-index="2" onclick="cardClicked(2)">
             <div class="project-image-box">
-              <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Radar" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600'">
+              <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Radar" class="project-cover-img" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600'">
               <div class="project-image-overlay"></div>
+
+              <!-- OFFICIAL HARBOUR LINK LOGO BADGE -->
+              <div class="project-logo-badge" title="Harbour Link Maritime Logo">
+                <img src="assets/harbourlink_logo.svg" alt="Harbour Link Maritime Logo">
+              </div>
+
               <span class="card-badge-pill">Maritime Telemetry</span>
               <span class="card-year-tag">2025</span>
             </div>
@@ -1761,15 +1967,28 @@
           <!-- 4. Native Android Offline Music Player -->
           <div class="carousel-3d-card" data-index="3" onclick="cardClicked(3)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#78350f,#9a3412);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#451a03,#78350f);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5">
                   <path d="M9 18V5l12-2v13"/>
                   <circle cx="6" cy="18" r="3"/>
                   <circle cx="18" cy="16" r="3"/>
                 </svg>
-                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#fed7aa;letter-spacing:1.5px;">KOTLIN // ANDROID SDK 36</div>
               </div>
               <div class="project-image-overlay"></div>
+
+              <!-- Animated Audio Equalizer Bars -->
+              <div class="audio-equalizer-bars">
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+                <div class="eq-bar"></div>
+              </div>
+
+              <!-- OFFICIAL MUSIC PLAYER LOGO BADGE -->
+              <div class="project-logo-badge" title="Kotlin Music Player Official Logo">
+                <img src="assets/musicplayer_logo.png" alt="Kotlin Music Player Official Logo">
+              </div>
+
               <span class="card-badge-pill" style="color:#fbbf24; border-color:rgba(251,191,36,0.5);">Native Android</span>
               <span class="card-year-tag">2025</span>
             </div>
@@ -1792,28 +2011,43 @@
             </div>
           </div>
 
-          <!-- 5. PayPulse Neo -->
+          <!-- 5. Premium Pay (Real Project Name!) -->
           <div class="carousel-3d-card" data-index="4" onclick="cardClicked(4)">
             <div class="project-image-box">
-              <img src="assets/paypulse.png" alt="PayPulse Neo Soundbox" onerror="this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=600'">
+              <img src="assets/paypulse.png" alt="Premium Pay Neo-Bank & UPI Showcase" class="project-cover-img">
               <div class="project-image-overlay"></div>
-              <span class="card-badge-pill">Soundbox & Payments</span>
+
+              <!-- Animated Soundbox Voice Equalizer -->
+              <div class="audio-equalizer-bars">
+                <div class="eq-bar" style="background:#00F5D4; box-shadow:0 0 8px #00F5D4;"></div>
+                <div class="eq-bar" style="background:#00F5D4; box-shadow:0 0 8px #00F5D4;"></div>
+                <div class="eq-bar" style="background:#00F5D4; box-shadow:0 0 8px #00F5D4;"></div>
+                <div class="eq-bar" style="background:#00F5D4; box-shadow:0 0 8px #00F5D4;"></div>
+              </div>
+
+              <!-- OFFICIAL PREMIUM PAY LOGO BADGE -->
+              <div class="project-logo-badge" title="Premium Pay Official Logo">
+                <img src="assets/premiumpay_logo.svg" alt="Premium Pay Official Logo">
+              </div>
+
+              <span class="card-badge-pill" style="color:#00F5D4; border-color:rgba(0,245,212,0.5);">Neo-Bank & Real UPI</span>
               <span class="card-year-tag">2026</span>
             </div>
             <div class="project-card-content">
               <div>
-                <h3 class="project-card-title">PayPulse Neo</h3>
+                <h3 class="project-card-title">Premium Pay Neo-Bank</h3>
                 <p class="project-card-desc">
-                  Next-generation merchant payment simulator featuring dynamic UPI QR generation, instant audio soundbox confirmation, merchant PIN verification, and interactive gamified loyalty rewards.
+                  Enterprise zero-branch neo-banking and real UPI platform. Features biometric fingerprint touch authentication, 4-digit hardware device lock PIN, dual-SIM binding, dynamic UPI QR generation, instant audio soundbox voice payment confirmation, and gamified scratch card rewards.
                 </p>
                 <div class="project-tech-tags">
-                  <span class="tech-chip">Web Audio API</span>
+                  <span class="tech-chip">Biometric PIN</span>
                   <span class="tech-chip">UPI Engine</span>
-                  <span class="tech-chip">Fintech</span>
+                  <span class="tech-chip">Soundbox Audio</span>
+                  <span class="tech-chip">Neo-Bank</span>
                 </div>
               </div>
               <div class="card-action-btns">
-                <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('paypulse')">SYSTEM MODAL ↗</button>
+                <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('premiumpay')">SYSTEM MODAL ↗</button>
                 <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">ECOSYSTEM</a>
               </div>
             </div>
@@ -1822,13 +2056,18 @@
           <!-- 6. Blood Donation Management System -->
           <div class="carousel-3d-card" data-index="5" onclick="cardClicked(5)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#881337,#9f1239);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.5">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#4c0519,#881337);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.5">
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                 </svg>
-                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#fecdd3;letter-spacing:1.5px;">HEALTHCARE DATABASE</div>
               </div>
               <div class="project-image-overlay"></div>
+
+              <!-- OFFICIAL BLOOD BANK LOGO BADGE -->
+              <div class="project-logo-badge" title="Blood Bank Portal Official Logo">
+                <img src="assets/bloodbank_logo.svg" alt="Blood Bank Portal Official Logo">
+              </div>
+
               <span class="card-badge-pill" style="color:#f43f5e; border-color:rgba(244,63,94,0.5);">Healthcare Backend</span>
               <span class="card-year-tag">2024</span>
             </div>
@@ -1876,7 +2115,7 @@
     <section class="section-container" id="about">
       <div class="section-header-block slide-up">
         <span class="section-tagline">BACKGROUND & VISION</span>
-        <h2 class="section-main-title">ABOUT ME.</h2>
+        <h2 class="section-main-title scramble-text" data-original="ABOUT ME.">ABOUT ME.</h2>
       </div>
 
       <div class="about-layout-grid">
@@ -1932,7 +2171,7 @@
     <section class="section-container" id="services">
       <div class="section-header-block slide-up">
         <span class="section-tagline">WHAT I DO</span>
-        <h2 class="section-main-title">SERVICES & PRICING.</h2>
+        <h2 class="section-main-title scramble-text" data-original="SERVICES & PRICING.">SERVICES & PRICING.</h2>
       </div>
 
       <div class="services-accordion-wrap slide-up delay-1">
@@ -2068,7 +2307,7 @@
          ======================================================== -->
     <section class="section-container" id="contact">
       <div class="contact-cta-card slide-up">
-        <h2 class="contact-title">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+        <h2 class="contact-title scramble-text" data-original="LET'S BUILD SOMETHING EXTRAORDINARY.">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
         <p class="contact-subtitle">
           Have an enterprise application, fintech platform, or mobile utility to build? Let's connect and make it real.
         </p>
@@ -2105,9 +2344,38 @@
   </div>
 
   <!-- ========================================================
-       JAVASCRIPT: PRELOADER, 3D CAROUSEL, PARTICLES, SLIDE-UP
+       JAVASCRIPT: PRELOADER, 3D CAROUSEL, PARTICLES, TILT, DECODER
        ======================================================== -->
   <script>
+    // ----------------------------------------------------
+    // 0. CUSTOM CYBER CURSOR ENGINE
+    // ----------------------------------------------------
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+    });
+
+    function renderCursor() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(renderCursor);
+    }
+    renderCursor();
+
+    document.querySelectorAll('a, button, .carousel-3d-card, .service-accordion-row, .matrix-badge').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('active'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('active'));
+    });
+
     // ----------------------------------------------------
     // 1. CINEMATIC PRELOADER ANIMATION (00% -> 100%)
     // ----------------------------------------------------
@@ -2117,7 +2385,6 @@
 
     let currentProgress = 0;
     const progressInterval = setInterval(() => {
-      // Accelerate progress smoothly
       const increment = Math.floor(Math.random() * 8) + 3;
       currentProgress = Math.min(100, currentProgress + increment);
       
@@ -2128,7 +2395,6 @@
         clearInterval(progressInterval);
         setTimeout(() => {
           preloader.classList.add('completed');
-          // Trigger first slide-up animations
           triggerSlideUp();
         }, 350);
       }
@@ -2199,8 +2465,30 @@
     animateEmbers();
 
     // ----------------------------------------------------
-    // 3. SLIDE-UP ANIMATIONS (Intersection Observer)
+    // 3. SLIDE-UP ANIMATIONS & HACKER TEXT SCRAMBLER
     // ----------------------------------------------------
+    function runTextDecoder(element) {
+      if (element.dataset.decoded === 'true') return;
+      element.dataset.decoded = 'true';
+      const original = element.getAttribute('data-original');
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$#@%&*';
+      let iterations = 0;
+
+      const interval = setInterval(() => {
+        element.innerText = original.split('').map((char, index) => {
+          if (index < iterations) return original[index];
+          if (char === ' ' || char === '.') return char;
+          return chars[Math.floor(Math.random() * chars.length)];
+        }).join('');
+
+        if (iterations >= original.length) {
+          clearInterval(interval);
+          element.innerText = original;
+        }
+        iterations += 1 / 2;
+      }, 30);
+    }
+
     function triggerSlideUp() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -2208,6 +2496,11 @@
             entry.target.classList.add('revealed');
             if (entry.target.id === 'stats' || entry.target.classList.contains('stats-section-box')) {
               startStatsCounters();
+            }
+            if (entry.target.querySelector('.scramble-text')) {
+              runTextDecoder(entry.target.querySelector('.scramble-text'));
+            } else if (entry.target.classList.contains('scramble-text')) {
+              runTextDecoder(entry.target);
             }
           }
         });
@@ -2248,7 +2541,6 @@
 
     // ----------------------------------------------------
     // 5. TRUE 3D CYLINDRICAL COVERFLOW CAROUSEL
-    //    (Exact Match to Video Frame 32!)
     // ----------------------------------------------------
     let current3DIndex = 0;
     const cards3D = document.querySelectorAll('.carousel-3d-card');
@@ -2262,7 +2554,6 @@
       const farXOffset = isMobile ? 380 : 540;
 
       cards3D.forEach((card, idx) => {
-        // Calculate shortest circular distance
         let diff = idx - current3DIndex;
         if (diff > total3DCards / 2) diff -= total3DCards;
         if (diff < -total3DCards / 2) diff += total3DCards;
@@ -2270,38 +2561,32 @@
         card.classList.remove('active-center');
 
         if (diff === 0) {
-          // Center Active Card
           card.classList.add('active-center');
           card.style.transform = `translateX(0px) translateZ(140px) rotateY(0deg) scale(1.05)`;
           card.style.opacity = '1';
           card.style.zIndex = '10';
           card.style.pointerEvents = 'auto';
         } else if (diff === 1) {
-          // Immediate Right Card
           card.style.transform = `translateX(${xOffset}px) translateZ(${zOffset}px) rotateY(-32deg) scale(0.88)`;
           card.style.opacity = '0.65';
           card.style.zIndex = '6';
           card.style.pointerEvents = 'auto';
         } else if (diff === -1) {
-          // Immediate Left Card
           card.style.transform = `translateX(-${xOffset}px) translateZ(${zOffset}px) rotateY(32deg) scale(0.88)`;
           card.style.opacity = '0.65';
           card.style.zIndex = '6';
           card.style.pointerEvents = 'auto';
         } else if (diff === 2) {
-          // Far Right
           card.style.transform = `translateX(${farXOffset}px) translateZ(${zOffset * 2}px) rotateY(-48deg) scale(0.72)`;
           card.style.opacity = '0.28';
           card.style.zIndex = '3';
           card.style.pointerEvents = 'none';
         } else if (diff === -2) {
-          // Far Left
           card.style.transform = `translateX(-${farXOffset}px) translateZ(${zOffset * 2}px) rotateY(48deg) scale(0.72)`;
           card.style.opacity = '0.28';
           card.style.zIndex = '3';
           card.style.pointerEvents = 'none';
         } else {
-          // Hidden Behind
           card.style.transform = `translateX(0px) translateZ(-350px) rotateY(180deg) scale(0.5)`;
           card.style.opacity = '0';
           card.style.zIndex = '1';
@@ -2309,7 +2594,6 @@
         }
       });
 
-      // Update dots
       dots3D.forEach((dot, idx) => {
         dot.classList.toggle('active', idx === current3DIndex);
       });
@@ -2327,8 +2611,7 @@
 
     function cardClicked(index) {
       if (index === current3DIndex) {
-        // If clicked on active center card, open its modal
-        const keys = ['lendswift', 'sankalp', 'harbourlink', 'musicplayer', 'paypulse', 'blooddonation'];
+        const keys = ['lendswift', 'sankalp', 'harbourlink', 'musicplayer', 'premiumpay', 'blooddonation'];
         openModal(keys[index]);
       } else {
         jumpTo3DCard(index);
@@ -2363,17 +2646,39 @@
       else if (endX - startX > 50) rotate3DCarousel(-1);
     }, { passive: true });
 
-    // Keyboard navigation
     window.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') rotate3DCarousel(-1);
       if (e.key === 'ArrowRight') rotate3DCarousel(1);
+    });
+
+    // ----------------------------------------------------
+    // 6. 3D CARD PARALLAX TILT PHYSICS
+    // ----------------------------------------------------
+    cards3D.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        if (!card.classList.contains('active-center')) return;
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -10;
+        const rotateY = ((x - centerX) / centerX) * 10;
+        card.style.transform = `translateX(0px) translateZ(160px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        if (card.classList.contains('active-center')) {
+          card.style.transform = `translateX(0px) translateZ(140px) rotateY(0deg) scale(1.05)`;
+        }
+      });
     });
 
     window.addEventListener('resize', render3DCarousel);
     render3DCarousel();
 
     // ----------------------------------------------------
-    // 6. ACCORDION EXPAND / COLLAPSE
+    // 7. ACCORDION EXPAND / COLLAPSE
     // ----------------------------------------------------
     function toggleService(row) {
       const isOpen = row.classList.contains('open');
@@ -2384,13 +2689,14 @@
     }
 
     // ----------------------------------------------------
-    // 7. SPEC MODAL SYSTEM
+    // 8. SPEC MODAL SYSTEM (With Official Premium Pay Name!)
     // ----------------------------------------------------
     const projectDetails = {
       lendswift: {
         title: "LendSwift Multi-Step Loan Application",
         year: "2026",
         role: "Lead Full Stack Engineer",
+        logo: "assets/lendswift_logo.svg",
         stack: "React 18, Vite, Tailwind CSS, Zod, AES-256-GCM, Canvas API, Cypress E2E",
         desc: "Enterprise-grade 8-step digital lending application tackling the 45% industry drop-off rate in BFSI lending. Features client-side Web Crypto AES-256-GCM encryption with 72-hour auto-purge, real mathematical Aadhaar Verhoeff checksum algorithm, PAN entity validation, Indian PIN code lookup, client-side Canvas document compression under 2MB, HTML5 e-signature pad, reducing-balance EMI engine, and 15 automated Cypress test suites.",
         repo: "https://github.com/khageswararao-ship-it/lendswift-loan-application"
@@ -2399,6 +2705,7 @@
         title: "Sankalp HRMS – Enterprise Workforce Operations",
         year: "2025",
         role: "Creator & Lead Engineer (Google-Indexed)",
+        logo: "assets/sankalp_logo.png",
         stack: "React 18, Vite, Recharts, Tailwind CSS, Capacitor 8.5 Android",
         desc: "Officially indexed on Google Search ('sankalp ip khageswararao'). Enterprise Single Page Application managing complete employee lifecycles, punch-in attendance tracking, and multi-tier leave approval pipelines. Engineered dual-factor time-based OTP security, role-based access control (RBAC), and Recharts real-time payroll burn analytics.",
         live: "https://sankalp-frontend-kohl.vercel.app",
@@ -2408,6 +2715,7 @@
         title: "Harbour Link – Maritime Ferry Transit Dashboard",
         year: "2025",
         role: "Frontend Engineer",
+        logo: "assets/harbourlink_logo.svg",
         stack: "HTML5, CSS3 Glassmorphism, Vanilla JS (ES6+)",
         desc: "Engineered high-performance maritime transit portal with zero external runtime dependencies, achieving instant First Contentful Paint. Built interactive real-time AIS radar sweep simulation with vessel tracking telemetry, terminal load indicators, and a 4-step ticket booking wizard with automated turnstile QR pass generation.",
         live: "https://khageswararao-ship-it.github.io/harbour-link",
@@ -2417,22 +2725,25 @@
         title: "Native Android Offline Music Player",
         year: "2025",
         role: "Android Developer",
+        logo: "assets/musicplayer_logo.png",
         stack: "Kotlin, Android SDK 36, Foreground Services, ContentResolver",
         desc: "Offline audio player targeting modern Android SDK 36. Implemented a robust Android Foreground Service (MusicService.kt) ensuring uninterrupted background audio playback and system notification controls. Dynamic local storage scanning using ContentResolver and MediaStore.Audio APIs.",
         repo: "https://github.com/khageswararao-ship-it/Music_Player"
       },
-      paypulse: {
-        title: "PayPulse Neo – Soundbox & Merchant Payments",
+      premiumpay: {
+        title: "Premium Pay – Enterprise Zero-Branch Neo-Bank & UPI",
         year: "2026",
         role: "Fintech Systems Architect",
-        stack: "HTML5, CSS3, JavaScript, Web Audio API, QR UPI Engine",
-        desc: "Complete next-generation merchant payment simulator featuring dynamic UPI QR generation, instant audio soundbox payment confirmation ('PayPulse received ₹500 successfully'), biometric PIN confirmation, and interactive gamified loyalty rewards spin wheel.",
+        logo: "assets/premiumpay_logo.svg",
+        stack: "HTML5, CSS3, JavaScript, Web Audio API, QR UPI Engine, Biometric PIN",
+        desc: "Next-generation zero-branch neo-banking and real UPI platform. Features biometric fingerprint touch authentication, 4-digit hardware device lock PIN, dual-SIM hardware binding (Jio/Airtel), dynamic UPI QR generation, instant audio soundbox voice payment confirmation ('Premium Pay received ₹500 successfully'), and gamified scratch card rewards.",
         repo: "https://github.com/khageswararao-ship-it"
       },
       blooddonation: {
         title: "Blood Donation Management System",
         year: "2024",
         role: "Full Stack Developer",
+        logo: "assets/bloodbank_logo.svg",
         stack: "Python (Flask), SQLite, Jinja2, Bootstrap",
         desc: "Full-stack healthcare web application managing regional blood inventory levels, recipient matching algorithms, donor scheduling, and role-based access control.",
         repo: "https://github.com/khageswararao-ship-it"
@@ -2443,8 +2754,15 @@
       const p = projectDetails[key];
       if (!p) return;
       const html = `
-        <div style="font-family: var(--font-tech); font-size: 11px; color: var(--crimson-neon); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">${p.role} • ${p.year}</div>
-        <h2 style="font-family: var(--font-display); font-size: 26px; color: #fff; margin-bottom: 14px;">${p.title}</h2>
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+          <div style="width:52px; height:52px; border-radius:14px; background:rgba(255,42,84,0.12); border:1.5px solid var(--crimson-border); padding:8px; display:flex; align-items:center; justify-content:center;">
+            <img src="${p.logo}" alt="${p.title}" style="width:100%; height:100%; object-fit:contain;">
+          </div>
+          <div>
+            <div style="font-family: var(--font-tech); font-size: 11px; color: var(--crimson-neon); text-transform: uppercase; letter-spacing: 2px;">${p.role} • ${p.year}</div>
+            <h2 style="font-family: var(--font-display); font-size: 22px; color: #fff; margin-top:2px;">${p.title}</h2>
+          </div>
+        </div>
         <div style="background: rgba(255,255,255,0.06); padding: 12px 18px; border-radius: 12px; font-family: var(--font-tech); font-size: 11px; color: #e4e4e7; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.1);">
           <strong>STACK:</strong> ${p.stack}
         </div>
