@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ravada Khageswararao — Frontend & Mobile Software Engineer</title>
+  <title>Ravada Khageswararao — Frontend & Mobile Software Engineer | Fintech Architect</title>
   
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
 
-  <!-- SEO & Google Knowledge Graph Metadata -->
-  <meta name="description" content="Official portfolio of Ravada Khageswararao — Frontend & Mobile Software Engineer. Specializing in React 18, Vite, Kotlin (Android SDK 36), and Fintech Architectures.">
-  <meta name="keywords" content="Ravada Khageswararao, Khageswar Rao, Frontend Engineer, Android Developer, Sankalp HRMS, LendSwift, Harbour Link">
+  <!-- SEO & Google Search Console Verification -->
+  <meta name="description" content="Official portfolio of Ravada Khageswararao — Frontend & Mobile Software Engineer and Fintech Systems Architect. Specializing in React 18, Kotlin (Android SDK 36), Vite, Web Crypto AES-256, and interactive 3D web systems.">
+  <meta name="keywords" content="Ravada Khageswararao, Khageswar Rao, Frontend Engineer, Android Developer, Sankalp HRMS, LendSwift, Harbour Link, PayPulse Neo">
   <meta name="author" content="Ravada Khageswararao">
-  <meta property="og:title" content="Ravada Khageswararao — Software Engineer & Builder">
-  <meta property="og:description" content="Explore featured projects, enterprise SPAs, and native Android applications built by Ravada Khageswararao.">
-  <meta property="og:image" content="profile.jpg">
+  <meta property="og:title" content="Ravada Khageswararao — Frontend & Mobile Engineer">
+  <meta property="og:description" content="Explore featured 3D projects, enterprise SPAs, and native Android applications built by Ravada Khageswararao.">
+  <meta property="og:image" content="https://khageswararao-ship-it.github.io/profile.jpg">
+  <meta property="og:url" content="https://khageswararao-ship-it.github.io/">
   <meta property="og:type" content="website">
 
-  <!-- Google Site Verification (Maintains Search Console ownership) -->
+  <!-- Google Site Verification Token -->
   <meta name="google-site-verification" content="google840066b6d2b96066.html">
 
-  <!-- Schema.org Person JSON-LD for Googlebot -->
+  <!-- Google Knowledge Graph Schema.org Person JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,38 +47,32 @@
       "https://sankalp-frontend-kohl.vercel.app",
       "https://khageswararao-ship-it.github.io/harbour-link",
       "https://khageswararao-ship-it.github.io/Ravada_Khageswararao_Resume.pdf"
-    ],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Dr. B.R. Ambedkar University – Kiranmayi Degree College",
-      "award": "Bachelor of Science in Computer Science (BSc CS)"
-    },
-    "knowsAbout": ["JavaScript", "React 18", "Kotlin", "Android SDK 36", "Vite", "Tailwind CSS", "Python", "SQLite", "Git"]
+    ]
   }
   </script>
 
-  <!-- Google Fonts: Syne, Orbitron, Space Grotesk -->
+  <!-- Google Fonts: Space Grotesk, Syne, Orbitron -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-dark: #07070a;
-      --bg-card: rgba(18, 18, 24, 0.7);
-      --bg-card-hover: rgba(28, 28, 38, 0.85);
+      --bg-dark: #050508;
+      --bg-surface: rgba(13, 13, 20, 0.75);
+      --bg-card: rgba(18, 18, 26, 0.82);
+      --bg-card-hover: rgba(28, 28, 40, 0.95);
       --crimson-neon: #ff2a54;
-      --crimson-glow: rgba(255, 42, 84, 0.65);
-      --crimson-subtle: rgba(255, 42, 84, 0.15);
-      --crimson-border: rgba(255, 42, 84, 0.35);
+      --crimson-glow: rgba(255, 42, 84, 0.75);
+      --crimson-subtle: rgba(255, 42, 84, 0.12);
+      --crimson-border: rgba(255, 42, 84, 0.45);
       --text-white: #ffffff;
       --text-gray: #a1a1aa;
       --text-muted: #71717a;
       --font-display: 'Syne', sans-serif;
       --font-tech: 'Orbitron', monospace;
       --font-body: 'Space Grotesk', -apple-system, sans-serif;
-      --border-radius-lg: 20px;
-      --border-radius-md: 14px;
+      --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -97,7 +92,123 @@
       position: relative;
     }
 
-    /* Live Interactive Canvas for Floating Crimson Embers */
+    /* ========================================================
+       1. CINEMATIC PRELOADER SCREEN (Exact Match to Video Frame 1!)
+       ======================================================== */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #050508;
+      z-index: 999999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+      will-change: transform, opacity;
+      overflow: hidden;
+    }
+
+    .preloader.completed {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    .preloader-bg-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 42, 84, 0.25) 0%, transparent 70%);
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .preloader-top-bar {
+      position: absolute;
+      top: 40px;
+      left: 48px;
+      right: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .preloader-counter {
+      font-family: var(--font-tech);
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #ffffff;
+      text-shadow: 0 0 25px rgba(255, 42, 84, 0.8);
+    }
+
+    .preloader-badge {
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--crimson-neon);
+      border: 1px solid var(--crimson-border);
+      padding: 6px 14px;
+      border-radius: 30px;
+      background: rgba(255, 42, 84, 0.08);
+    }
+
+    .preloader-center-content {
+      text-align: center;
+      max-width: 800px;
+      padding: 0 24px;
+      z-index: 2;
+    }
+
+    .preloader-title {
+      font-family: var(--font-tech);
+      font-size: clamp(22px, 4vw, 42px);
+      font-weight: 900;
+      letter-spacing: 3px;
+      line-height: 1.35;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: preloaderTextIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+    }
+
+    .preloader-title .highlight-red {
+      color: var(--crimson-neon);
+      text-shadow: 0 0 25px var(--crimson-neon);
+    }
+
+    @keyframes preloaderTextIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .preloader-progress-wrap {
+      width: min(380px, 80vw);
+      height: 4px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .preloader-progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff2a54, #ff6b87);
+      box-shadow: 0 0 15px var(--crimson-neon);
+      transition: width 0.05s linear;
+    }
+
+    /* Ambient Canvas for Floating Crimson Fire Embers */
     #ambient-canvas {
       position: fixed;
       top: 0;
@@ -105,7 +216,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
 
     /* Background Ambient Radial Glows */
@@ -114,120 +225,258 @@
       top: -150px;
       left: 50%;
       transform: translateX(-50%);
-      width: 900px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 42, 84, 0.22) 0%, rgba(7, 7, 10, 0) 70%);
+      width: 1100px;
+      height: 750px;
+      background: radial-gradient(circle, rgba(255, 42, 84, 0.22) 0%, rgba(5, 5, 8, 0) 70%);
       pointer-events: none;
       z-index: 0;
     }
 
     .bg-glow-mid {
       position: absolute;
-      top: 1400px;
+      top: 1200px;
       right: -100px;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(220, 38, 38, 0.18) 0%, rgba(7, 7, 10, 0) 70%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(circle, rgba(220, 38, 38, 0.16) 0%, rgba(5, 5, 8, 0) 70%);
       pointer-events: none;
       z-index: 0;
     }
 
+    /* ========================================================
+       2. 3D SPINNING PROPELLER / GEOMETRIC STAR (Frames 5 & 20)
+       ======================================================== */
+    .spinning-geometric-wrapper {
+      position: absolute;
+      top: 160px;
+      right: 5%;
+      width: 520px;
+      height: 520px;
+      pointer-events: none;
+      z-index: 2;
+      perspective: 1200px;
+      opacity: 0.65;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .spinning-propeller-3d {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin3DPropeller 20s linear infinite;
+    }
+
+    .propeller-blade {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      background: linear-gradient(135deg, rgba(35, 35, 50, 0.9), rgba(12, 12, 18, 0.95));
+      border: 1.5px solid rgba(255, 42, 84, 0.65);
+      box-shadow: 0 0 35px rgba(255, 42, 84, 0.35), inset 0 0 15px rgba(255, 42, 84, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .blade-h {
+      width: 480px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -240px;
+      border-radius: 44px;
+      transform: rotate(45deg);
+    }
+
+    .blade-v {
+      width: 480px;
+      height: 80px;
+      margin-top: -40px;
+      margin-left: -240px;
+      border-radius: 44px;
+      transform: rotate(-45deg);
+    }
+
+    .propeller-center-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 130px;
+      height: 130px;
+      margin-top: -65px;
+      margin-left: -65px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff2a54 20%, #991b1b 65%, #050508 100%);
+      box-shadow: 0 0 60px #ff2a54, 0 0 120px rgba(255, 42, 84, 0.5);
+      border: 2px solid #ffffff;
+      animation: pulseCoreGlow 2.5s infinite alternate ease-in-out;
+      transform: translateZ(30px);
+    }
+
+    @keyframes spin3DPropeller {
+      0% {
+        transform: rotateX(25deg) rotateY(20deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(25deg) rotateY(20deg) rotateZ(360deg);
+      }
+    }
+
+    @keyframes pulseCoreGlow {
+      0% {
+        box-shadow: 0 0 40px #ff2a54, 0 0 80px rgba(255, 42, 84, 0.4);
+        transform: translateZ(20px) scale(0.95);
+      }
+      100% {
+        box-shadow: 0 0 80px #ff2a54, 0 0 140px rgba(255, 42, 84, 0.8);
+        transform: translateZ(40px) scale(1.08);
+      }
+    }
+
+    /* Section Divider 3D Spinning Shuriken (Between Sections) */
+    .section-floating-star {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 220px;
+      height: 220px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.35;
+      perspective: 1000px;
+    }
+
+    .star-rotator {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      animation: spinStar3D 16s linear infinite;
+    }
+
+    @keyframes spinStar3D {
+      0% { transform: rotateX(45deg) rotateY(0deg) rotateZ(0deg); }
+      100% { transform: rotateX(45deg) rotateY(360deg) rotateZ(360deg); }
+    }
+
+    /* ========================================================
+       3. SLIDE-UP ANIMATIONS (Scroll Reveal with Stagger)
+       ======================================================== */
+    .slide-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .slide-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.12s; }
+    .delay-2 { transition-delay: 0.24s; }
+    .delay-3 { transition-delay: 0.36s; }
+    .delay-4 { transition-delay: 0.48s; }
+    .delay-5 { transition-delay: 0.60s; }
+
+    /* ========================================================
+       4. NAVBAR (Cyber Floating Glass Pill)
+       ======================================================== */
     .site-wrapper {
       position: relative;
-      z-index: 1;
-      max-width: 1240px;
+      z-index: 3;
+      max-width: 1260px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* ========================================================
-       TOP NAVIGATION BAR
-       ======================================================== */
     .navbar {
       position: sticky;
-      top: 20px;
-      z-index: 100;
+      top: 18px;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(13, 13, 18, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(13, 13, 20, 0.8);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 40px;
-      padding: 12px 24px;
+      padding: 12px 28px;
       margin-top: 16px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      transition: all 0.3s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 42, 84, 0.1);
+      transition: var(--transition-smooth);
     }
 
     .nav-logo {
       font-family: var(--font-tech);
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 900;
-      letter-spacing: 1px;
-      color: var(--text-white);
+      letter-spacing: 2px;
+      color: #ffffff;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
     }
 
-    .logo-dot {
-      width: 8px;
-      height: 8px;
+    .nav-logo-dot {
+      width: 10px;
+      height: 10px;
       background: var(--crimson-neon);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--crimson-neon);
-      animation: pulseGlow 2s infinite ease-in-out;
+      box-shadow: 0 0 14px var(--crimson-neon);
+      animation: pulseGlow 1.8s infinite ease-in-out;
     }
 
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 32px;
       list-style: none;
     }
 
     .nav-link {
       font-family: var(--font-tech);
       font-size: 11px;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--text-gray);
       text-decoration: none;
-      transition: color 0.2s, text-shadow 0.2s;
+      transition: all 0.25s ease;
+      position: relative;
     }
 
     .nav-link:hover {
-      color: var(--text-white);
-      text-shadow: 0 0 8px var(--crimson-glow);
+      color: #ffffff;
+      text-shadow: 0 0 12px var(--crimson-glow);
     }
 
     .nav-cta-btn {
       font-family: var(--font-tech);
       font-size: 11px;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
       color: #ffffff;
       background: linear-gradient(135deg, #ff2a54, #b91c1c);
-      padding: 10px 22px;
+      padding: 10px 24px;
       border-radius: 30px;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 20px rgba(255, 42, 84, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 25px rgba(255, 42, 84, 0.55);
       transition: all 0.25s ease;
       cursor: pointer;
     }
 
     .nav-cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(255, 42, 84, 0.8);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 0 35px rgba(255, 42, 84, 0.9);
     }
 
     /* ========================================================
-       HERO SECTION (CYBERPUNK SCI-FI GLOW & PORTRAIT HUD)
+       5. HERO SECTION (Cyberpunk Sci-Fi Glow & Laser HUD)
        ======================================================== */
     .hero-section {
       min-height: calc(100vh - 120px);
@@ -240,64 +489,66 @@
     }
 
     .hero-content {
-      flex: 1;
+      flex: 1.1;
       max-width: 620px;
+      z-index: 4;
     }
 
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       background: var(--crimson-subtle);
       border: 1px solid var(--crimson-border);
-      padding: 6px 16px;
+      padding: 7px 18px;
       border-radius: 30px;
       font-family: var(--font-tech);
       font-size: 11px;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       color: #ff6b87;
       margin-bottom: 24px;
-      box-shadow: 0 0 15px rgba(255, 42, 84, 0.15);
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.25);
     }
 
     .badge-indicator {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--crimson-neon);
-      box-shadow: 0 0 8px var(--crimson-neon);
+      box-shadow: 0 0 10px var(--crimson-neon);
       animation: pulseGlow 1.5s infinite;
     }
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: 64px;
+      font-size: clamp(42px, 5.5vw, 68px);
       font-weight: 900;
-      line-height: 1.05;
+      line-height: 1.02;
       letter-spacing: -1.5px;
       text-transform: uppercase;
       background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
     }
 
     .hero-subtitle {
       font-family: var(--font-tech);
-      font-size: 15px;
+      font-size: clamp(13px, 1.8vw, 16px);
       font-weight: 700;
-      letter-spacing: 2.5px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--crimson-neon);
-      margin-bottom: 20px;
-      text-shadow: 0 0 12px rgba(255, 42, 84, 0.6);
+      margin-bottom: 22px;
+      text-shadow: 0 0 14px rgba(255, 42, 84, 0.7);
     }
 
     .hero-description {
       font-size: 16px;
       color: var(--text-gray);
-      line-height: 1.7;
-      margin-bottom: 34px;
+      line-height: 1.75;
+      margin-bottom: 36px;
       font-weight: 400;
     }
 
@@ -312,24 +563,24 @@
       font-family: var(--font-tech);
       font-size: 12px;
       letter-spacing: 1.5px;
-      font-weight: 700;
+      font-weight: 800;
       color: #ffffff;
       background: linear-gradient(135deg, #ff2a54, #b91c1c);
-      padding: 14px 28px;
+      padding: 15px 32px;
       border-radius: 30px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 0 25px rgba(255, 42, 84, 0.5);
-      transition: all 0.25s ease;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 25px rgba(255, 42, 84, 0.6);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 35px rgba(255, 42, 84, 0.85);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 0 40px rgba(255, 42, 84, 0.95);
     }
 
     .btn-secondary {
@@ -339,618 +590,127 @@
       font-weight: 700;
       color: var(--text-white);
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 14px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 15px 30px;
       border-radius: 30px;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       backdrop-filter: blur(8px);
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.35);
-      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 42, 84, 0.5);
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.25);
+      transform: translateY(-3px);
     }
 
-    /* Hero Right: Glowing Portrait & HUD Circuits */
+    /* Hero Right: Glowing Avatar Frame + Diagonal Laser Circuit Lines */
     .hero-visual {
       flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
+      z-index: 4;
     }
 
-    .portrait-aura-box {
+    .hero-portrait-stage {
       position: relative;
-      width: 420px;
-      height: 480px;
+      width: min(390px, 90vw);
+      height: min(480px, 110vw);
       border-radius: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(255, 42, 84, 0.25), rgba(15, 15, 22, 0.9));
+      box-shadow: 0 0 50px rgba(255, 42, 84, 0.45);
+      border: 1.5px solid rgba(255, 42, 84, 0.5);
     }
 
-    /* Glowing Crimson Nebula Behind Photo */
-    .portrait-aura-box::before {
-      content: '';
-      position: absolute;
+    .hero-portrait-inner {
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(255, 42, 84, 0.55) 0%, rgba(185, 28, 28, 0.2) 50%, transparent 75%);
-      filter: blur(45px);
-      border-radius: 50%;
-      z-index: 1;
-      animation: pulseAura 4s infinite alternate ease-in-out;
-    }
-
-    .portrait-frame {
-      position: relative;
-      width: 360px;
-      height: 440px;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      z-index: 2;
-      border: 1px solid rgba(255, 42, 84, 0.4);
-      box-shadow: 0 0 40px rgba(255, 42, 84, 0.3), inset 0 0 20px rgba(255, 42, 84, 0.2);
-      background: #0d0d12;
+      position: relative;
+      background: #000;
     }
 
-    .portrait-frame img {
+    .hero-portrait-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: top center;
       filter: contrast(1.08) brightness(1.02);
-      transition: transform 0.4s ease;
+      transition: transform 0.6s ease;
     }
 
-    .portrait-frame:hover img {
+    .hero-portrait-stage:hover .hero-portrait-img {
       transform: scale(1.03);
     }
 
-    .portrait-frame-overlay {
+    .portrait-red-aura {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 45%;
-      background: linear-gradient(to top, rgba(7, 7, 10, 0.95), transparent);
-      z-index: 3;
+      inset: 0;
+      background: radial-gradient(circle at 50% 60%, rgba(255, 42, 84, 0.2) 0%, rgba(5, 5, 8, 0.5) 85%);
+      pointer-events: none;
     }
 
-    /* Floating HUD Tech Chips with Circuit Lines */
+    /* Diagonal Neon Laser Circuit Lines (Exact Match to Video Frames 4, 6, 8) */
+    .laser-circuit-svg {
+      position: absolute;
+      top: -30px;
+      left: -50px;
+      width: calc(100% + 100px);
+      height: calc(100% + 60px);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .laser-line {
+      stroke: var(--crimson-neon);
+      stroke-width: 2.5;
+      fill: none;
+      filter: drop-shadow(0 0 10px #ff2a54);
+      stroke-dasharray: 400;
+      animation: laserFlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes laserFlow {
+      0% { stroke-dashoffset: 400; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    /* Floating Tech Spec HUD Badges */
     .hud-tag {
       position: absolute;
-      z-index: 4;
-      background: rgba(15, 15, 22, 0.85);
+      background: rgba(13, 13, 20, 0.88);
       border: 1px solid var(--crimson-border);
-      backdrop-filter: blur(12px);
-      padding: 8px 14px;
-      border-radius: 20px;
+      padding: 8px 16px;
+      border-radius: 12px;
       font-family: var(--font-tech);
       font-size: 10px;
-      letter-spacing: 1px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 0 18px rgba(255, 42, 84, 0.3);
-      animation: floatTag 3s infinite ease-in-out alternate;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.35);
+      backdrop-filter: blur(12px);
+      z-index: 6;
+      animation: floatTag 3s ease-in-out infinite alternate;
     }
 
     .hud-tag-1 {
-      top: 30px;
-      left: -20px;
+      top: 40px;
+      left: -35px;
       animation-delay: 0s;
     }
 
     .hud-tag-2 {
-      bottom: 60px;
-      left: -30px;
-      animation-delay: 1s;
-    }
-
-    .hud-tag-3 {
-      top: 140px;
+      bottom: 50px;
       right: -25px;
-      animation-delay: 1.8s;
-    }
-
-    .hud-indicator-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--crimson-neon);
-      box-shadow: 0 0 6px var(--crimson-neon);
-    }
-
-    /* ========================================================
-       SECTION HEADERS (Futuristic Sci-Fi Style)
-       ======================================================== */
-    .section-container {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .section-header-block {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .section-tagline {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--crimson-neon);
-      margin-bottom: 10px;
-      display: inline-block;
-      text-shadow: 0 0 10px rgba(255, 42, 84, 0.5);
-    }
-
-    .section-main-title {
-      font-family: var(--font-display);
-      font-size: 44px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.5px;
-      color: var(--text-white);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-main-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 3px;
-      background: var(--crimson-neon);
-      box-shadow: 0 0 12px var(--crimson-neon);
-      border-radius: 2px;
-    }
-
-    /* ========================================================
-       FEATURED WORKS — PROJECTS CARDS (Frame 8)
-       ======================================================== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 30px;
-    }
-
-    .sci-project-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius-lg);
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      backdrop-filter: blur(12px);
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .sci-project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--crimson-neon), transparent);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-
-    .sci-project-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--crimson-border);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 84, 0.18);
-      background: var(--bg-card-hover);
-    }
-
-    .sci-project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-image-preview {
-      width: 100%;
-      height: 200px;
-      border-radius: var(--border-radius-md);
-      overflow: hidden;
-      margin-bottom: 20px;
-      position: relative;
-      background: #111118;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .project-image-preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .sci-project-card:hover .project-image-preview img {
-      transform: scale(1.05);
-    }
-
-    .project-badge-pill {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(10, 10, 15, 0.85);
-      border: 1px solid var(--crimson-border);
-      backdrop-filter: blur(8px);
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-family: var(--font-tech);
-      font-size: 10px;
-      color: #ff6b87;
-      letter-spacing: 1px;
-      font-weight: 600;
-    }
-
-    .project-year-badge {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: rgba(0, 0, 0, 0.65);
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-family: var(--font-tech);
-      font-size: 10px;
-      color: #a1a1aa;
-    }
-
-    .project-card-title {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-
-    .project-card-desc {
-      font-size: 14px;
-      color: var(--text-gray);
-      line-height: 1.6;
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
-
-    .project-tech-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 20px;
-    }
-
-    .tech-mini-pill {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-family: var(--font-tech);
-      font-size: 10px;
-      color: #d4d4d8;
-    }
-
-    .project-card-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .btn-card-action {
-      flex: 1;
-      text-align: center;
-      padding: 10px 14px;
-      border-radius: 20px;
-      font-family: var(--font-tech);
-      font-size: 11px;
-      letter-spacing: 1px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .btn-card-live {
-      background: var(--crimson-neon);
-      color: #fff;
-      box-shadow: 0 0 15px rgba(255, 42, 84, 0.35);
-    }
-    .btn-card-live:hover {
-      box-shadow: 0 0 25px rgba(255, 42, 84, 0.7);
-    }
-
-    .btn-card-repo {
-      background: rgba(255, 255, 255, 0.06);
-      color: #e4e4e7;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-    .btn-card-repo:hover {
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
-    }
-
-    /* ========================================================
-       ABOUT ME SECTION (Frame 12 - Hanging Frame & Bio Card)
-       ======================================================== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .about-bio-card {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius-lg);
-      padding: 36px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
-    }
-
-    .about-bio-text {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #d4d4d8;
-      margin-bottom: 24px;
-    }
-
-    .about-tech-matrix {
-      margin-top: 24px;
-    }
-
-    .matrix-title {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: var(--crimson-neon);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .matrix-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .matrix-chip {
-      background: rgba(255, 42, 84, 0.08);
-      border: 1px solid var(--crimson-border);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-family: var(--font-tech);
-      font-size: 11px;
-      color: #fff;
-    }
-
-    /* Hanging Framed Portrait with Neon Wire (Frame 12) */
-    .hanging-frame-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
-
-    .hanging-strings {
-      width: 140px;
-      height: 60px;
-      position: relative;
-    }
-
-    .string-left, .string-right {
-      position: absolute;
-      top: 0;
-      width: 2px;
-      height: 60px;
-      background: linear-gradient(to bottom, #71717a, var(--crimson-neon));
-    }
-    .string-left {
-      left: 30px;
-      transform: rotate(20deg);
-      transform-origin: top;
-    }
-    .string-right {
-      right: 30px;
-      transform: rotate(-20deg);
-      transform-origin: top;
-    }
-
-    .pin-hook {
-      position: absolute;
-      top: -6px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--crimson-neon);
-      box-shadow: 0 0 10px var(--crimson-neon);
-    }
-
-    .hanging-framed-photo {
-      width: 280px;
-      height: 360px;
-      border-radius: 20px;
-      background: #111118;
-      border: 2px solid rgba(255, 42, 84, 0.45);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 42, 84, 0.35);
-      overflow: hidden;
-      position: relative;
-      animation: swingFrame 6s ease-in-out infinite alternate;
-      transform-origin: top center;
-    }
-
-    .hanging-framed-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-    }
-
-    /* ========================================================
-       SERVICES & EXPERTISE SECTION (Frame 14)
-       ======================================================== */
-    .services-accordion-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .service-row {
-      background: var(--bg-card);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--border-radius-md);
-      padding: 20px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-    }
-
-    .service-row:hover {
-      border-color: var(--crimson-border);
-      background: var(--bg-card-hover);
-      box-shadow: 0 10px 25px rgba(255, 42, 84, 0.15);
-      transform: translateX(6px);
-    }
-
-    .service-left {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .service-index {
-      font-family: var(--font-tech);
-      font-size: 12px;
-      color: var(--crimson-neon);
-      font-weight: 700;
-    }
-
-    .service-name {
-      font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-    }
-
-    .service-tag {
-      font-family: var(--font-tech);
-      font-size: 11px;
-      color: #a1a1aa;
-    }
-
-    .service-arrow {
-      color: var(--crimson-neon);
-      font-size: 18px;
-      transition: transform 0.2s ease;
-    }
-
-    .service-row:hover .service-arrow {
-      transform: translateX(4px);
-    }
-
-    /* ========================================================
-       CONTACT & FOOTER
-       ======================================================== */
-    .contact-card-box {
-      background: linear-gradient(135deg, rgba(255, 42, 84, 0.12), rgba(15, 15, 22, 0.8));
-      border: 1px solid var(--crimson-border);
-      border-radius: 28px;
-      padding: 60px 40px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 42, 84, 0.2);
-      backdrop-filter: blur(16px);
-      margin-bottom: 80px;
-    }
-
-    .contact-heading {
-      font-family: var(--font-display);
-      font-size: 48px;
-      font-weight: 900;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-    }
-
-    .contact-sub {
-      font-size: 17px;
-      color: #a1a1aa;
-      max-width: 580px;
-      margin: 0 auto 36px auto;
-      line-height: 1.6;
-    }
-
-    .social-links-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .social-btn {
-      font-family: var(--font-tech);
-      font-size: 12px;
-      letter-spacing: 1px;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 12px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s ease;
-    }
-
-    .social-btn:hover {
-      background: var(--crimson-neon);
-      border-color: var(--crimson-neon);
-      box-shadow: 0 0 25px rgba(255, 42, 84, 0.6);
-      transform: translateY(-2px);
-    }
-
-    .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 30px 0;
-      text-align: center;
-      color: #71717a;
-      font-size: 13px;
-      font-family: var(--font-tech);
-      letter-spacing: 1px;
-    }
-
-    /* Keyframe Animations */
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.8; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.15); }
-    }
-
-    @keyframes pulseAura {
-      0% { transform: scale(0.95); opacity: 0.7; }
-      100% { transform: scale(1.08); opacity: 1; }
+      animation-delay: 1.5s;
     }
 
     @keyframes floatTag {
@@ -958,57 +718,756 @@
       100% { transform: translateY(-8px); }
     }
 
-    @keyframes swingFrame {
-      0% { transform: rotate(-1.5deg); }
-      100% { transform: rotate(1.5deg); }
+    /* ========================================================
+       6. STATS COUNTER BAR (Frame 22)
+       ======================================================== */
+    .stats-section-box {
+      margin: 40px 0 100px 0;
+      background: rgba(18, 18, 26, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 36px 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(14px);
     }
 
-    /* Modal */
-    .hud-modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      display: none;
+    .stat-item {
+      text-align: center;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: 0;
+      height: 70%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-number {
+      font-family: var(--font-tech);
+      font-size: clamp(34px, 4.5vw, 52px);
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 25px rgba(255, 42, 84, 0.7);
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-gray);
+      font-weight: 600;
+    }
+
+    /* ========================================================
+       7. 3D CYLINDRICAL COVERFLOW CAROUSEL ("PROJECTS.")
+          (Exact Match to Video Frames 25, 28, 32!)
+       ======================================================== */
+    .section-container {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-header-block {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-tagline {
+      font-family: var(--font-tech);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--crimson-neon);
+      margin-bottom: 10px;
+      display: block;
+      text-shadow: 0 0 10px var(--crimson-glow);
+    }
+
+    .section-main-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: linear-gradient(180deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+    }
+
+    /* 3D Cylindrical Perspective Carousel Viewport */
+    .carousel-3d-viewport {
+      position: relative;
+      width: 100%;
+      height: 580px;
+      margin: 0 auto;
+      perspective: 1400px;
+      perspective-origin: 50% 50%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 1000;
-      padding: 20px;
+      overflow: hidden;
     }
-    .hud-modal-overlay.active { display: flex; }
+
+    .carousel-3d-stage {
+      position: relative;
+      width: min(420px, 86vw);
+      height: 520px;
+      transform-style: preserve-3d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Individual 3D Card */
+    .carousel-3d-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      background: rgba(18, 18, 28, 0.88);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.65s ease, border-color 0.65s ease, box-shadow 0.65s ease;
+      will-change: transform, opacity;
+      transform-style: preserve-3d;
+      user-select: none;
+    }
+
+    /* Center Active Card: High Glow & Sharp Border */
+    .carousel-3d-card.active-center {
+      border-color: rgba(255, 42, 84, 0.85);
+      box-shadow: 0 0 45px rgba(255, 42, 84, 0.5), 0 25px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    .project-image-box {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #0a0a10;
+    }
+
+    .project-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .carousel-3d-card:hover .project-image-box img {
+      transform: scale(1.05);
+    }
+
+    .project-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(18, 18, 28, 0.95) 100%);
+    }
+
+    .card-badge-pill {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(5, 5, 8, 0.85);
+      border: 1px solid var(--crimson-border);
+      color: var(--crimson-neon);
+      font-family: var(--font-tech);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .card-year-tag {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-family: var(--font-tech);
+      font-size: 10px;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+
+    .project-card-content {
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .project-card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .project-card-desc {
+      font-size: 13px;
+      color: var(--text-gray);
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .tech-chip {
+      font-family: var(--font-tech);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 6px;
+      color: #d4d4d8;
+    }
+
+    .card-action-btns {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn-card {
+      flex: 1;
+      text-align: center;
+      padding: 9px 14px;
+      border-radius: 20px;
+      font-family: var(--font-tech);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-card-launch {
+      background: var(--crimson-neon);
+      color: #ffffff;
+      border: 1px solid var(--crimson-neon);
+      box-shadow: 0 0 15px rgba(255, 42, 84, 0.45);
+    }
+
+    .btn-card-launch:hover {
+      box-shadow: 0 0 25px rgba(255, 42, 84, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .btn-card-info {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .btn-card-info:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
+
+    /* Carousel Nav Arrows */
+    .carousel-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .carousel-nav-arrow {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(18, 18, 26, 0.85);
+      border: 1.5px solid var(--crimson-border);
+      color: #ffffff;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .carousel-nav-arrow:hover {
+      background: var(--crimson-neon);
+      transform: scale(1.1);
+      box-shadow: 0 0 35px var(--crimson-neon);
+    }
+
+    .carousel-dots-wrap {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      width: 24px;
+      border-radius: 12px;
+      background: var(--crimson-neon);
+      box-shadow: 0 0 12px var(--crimson-neon);
+    }
+
+    /* ========================================================
+       8. ABOUT ME & HANGING FRAMED PORTRAIT (Frames 44 & 45)
+       ======================================================== */
+    .about-layout-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-glass-box {
+      background: rgba(18, 18, 26, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(14px);
+    }
+
+    .about-paragraph {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-gray);
+      margin-bottom: 20px;
+    }
+
+    .about-paragraph strong {
+      color: #ffffff;
+    }
+
+    .tech-skills-matrix {
+      margin-top: 28px;
+    }
+
+    .matrix-title {
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--crimson-neon);
+      margin-bottom: 14px;
+    }
+
+    .matrix-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .matrix-badge {
+      font-family: var(--font-tech);
+      font-size: 10px;
+      letter-spacing: 1px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #e4e4e7;
+      transition: all 0.25s ease;
+    }
+
+    .matrix-badge:hover {
+      border-color: var(--crimson-neon);
+      box-shadow: 0 0 15px rgba(255, 42, 84, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Hanging Framed Portrait with Pendulum Physics */
+    .hanging-portrait-stage {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 520px;
+      perspective: 1000px;
+    }
+
+    .hanging-assembly {
+      transform-origin: top center;
+      animation: pendulumSwing 4.5s ease-in-out infinite alternate;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pin-hook {
+      width: 16px;
+      height: 16px;
+      background: radial-gradient(circle, #ffffff, #94a3b8);
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      z-index: 5;
+    }
+
+    .hanging-strings-svg {
+      width: 260px;
+      height: 110px;
+      margin-top: -8px;
+      pointer-events: none;
+    }
+
+    .hanging-picture-frame {
+      width: min(320px, 80vw);
+      height: 400px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(30, 30, 42, 0.9), rgba(12, 12, 18, 0.98));
+      border: 2px solid rgba(255, 42, 84, 0.65);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 42, 84, 0.35);
+      padding: 14px;
+      margin-top: -10px;
+      position: relative;
+      overflow: hidden;
+      transform: rotate(-2deg);
+      transition: transform 0.4s ease;
+    }
+
+    .hanging-picture-frame:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .hanging-picture-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hanging-picture-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .hanging-glass-shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%, rgba(255, 42, 84, 0.1) 100%);
+      pointer-events: none;
+    }
+
+    @keyframes pendulumSwing {
+      0% {
+        transform: rotate(5.5deg);
+      }
+      50% {
+        transform: rotate(-5.5deg);
+      }
+      100% {
+        transform: rotate(5.5deg);
+      }
+    }
+
+    /* ========================================================
+       9. SERVICES & PRICING ACCORDION (Frames 54 & 55)
+       ======================================================== */
+    .services-accordion-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .service-accordion-row {
+      background: rgba(18, 18, 26, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 24px 32px;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-accordion-row:hover {
+      background: rgba(26, 26, 38, 0.9);
+      border-color: rgba(255, 42, 84, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .service-accordion-row.open {
+      background: rgba(28, 28, 42, 0.95);
+      border-color: var(--crimson-neon);
+      box-shadow: 0 0 30px rgba(255, 42, 84, 0.35);
+    }
+
+    .service-main-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .service-num-title {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .service-index {
+      font-family: var(--font-tech);
+      font-size: 14px;
+      color: var(--crimson-neon);
+      font-weight: 800;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .service-pricing-pill {
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(255, 42, 84, 0.12);
+      border: 1px solid var(--crimson-border);
+      color: #ff6b87;
+      padding: 7px 16px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .service-expand-icon {
+      font-size: 18px;
+      color: var(--text-gray);
+      transition: transform 0.35s ease, color 0.35s ease;
+    }
+
+    .service-accordion-row.open .service-expand-icon {
+      transform: rotate(45deg);
+      color: var(--crimson-neon);
+    }
+
+    .service-dropdown-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin-top 0.4s ease;
+    }
+
+    .service-accordion-row.open .service-dropdown-details {
+      max-height: 300px;
+      margin-top: 20px;
+    }
+
+    .service-dropdown-inner {
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    .service-deliverables-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .deliverable-chip {
+      font-family: var(--font-tech);
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 5px 12px;
+      border-radius: 12px;
+      color: #e4e4e7;
+    }
+
+    /* ========================================================
+       10. CONTACT SECTION & FOOTER
+       ======================================================== */
+    .contact-cta-card {
+      background: linear-gradient(135deg, rgba(25, 25, 36, 0.8), rgba(12, 12, 18, 0.95));
+      border: 1.5px solid var(--crimson-border);
+      box-shadow: 0 0 50px rgba(255, 42, 84, 0.3);
+      border-radius: 32px;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 80px 0;
+      backdrop-filter: blur(16px);
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4.5vw, 54px);
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .contact-subtitle {
+      font-size: 16px;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto 36px auto;
+      line-height: 1.7;
+    }
+
+    .contact-buttons-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-social-btn {
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 14px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-social-btn:hover {
+      background: var(--crimson-neon);
+      border-color: var(--crimson-neon);
+      box-shadow: 0 0 25px var(--crimson-neon);
+      transform: translateY(-3px);
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 0;
+      text-align: center;
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+    }
+
+    /* Modal System */
+    .hud-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 8, 0.88);
+      backdrop-filter: blur(20px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .hud-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     .hud-modal-card {
-      background: #0f0f16;
-      border: 1px solid var(--crimson-border);
-      box-shadow: 0 0 50px rgba(255, 42, 84, 0.35);
-      border-radius: 24px;
-      max-width: 600px;
+      background: rgba(20, 20, 30, 0.95);
+      border: 1.5px solid var(--crimson-border);
+      box-shadow: 0 0 60px rgba(255, 42, 84, 0.5);
+      border-radius: 28px;
+      max-width: 680px;
       width: 100%;
-      padding: 32px;
+      padding: 40px;
       position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
+      transform: scale(0.92);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hud-modal-overlay.active .hud-modal-card {
+      transform: scale(1);
     }
 
     .hud-modal-close {
       position: absolute;
       top: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: #fff;
-      width: 32px;
-      height: 32px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #fff;
+      font-size: 16px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
+      transition: all 0.25s ease;
     }
 
-    /* Mobile Responsive */
-    @media (max-width: 900px) {
+    .hud-modal-close:hover {
+      background: var(--crimson-neon);
+      transform: scale(1.1);
+    }
+
+    /* ========================================================
+       RESPONSIVE BREAKPOINTS
+       ======================================================== */
+    @media (max-width: 960px) {
       .hero-section {
         flex-direction: column;
         text-align: center;
@@ -1017,24 +1476,23 @@
       .hero-content {
         max-width: 100%;
       }
-      .hero-title {
-        font-size: 46px;
-      }
       .hero-buttons {
         justify-content: center;
       }
-      .about-grid {
+      .spinning-geometric-wrapper {
+        display: none;
+      }
+      .about-layout-grid {
         grid-template-columns: 1fr;
       }
-      .portrait-aura-box {
-        width: 300px;
-        height: 360px;
+      .hanging-portrait-stage {
+        height: 480px;
       }
-      .portrait-frame {
-        width: 280px;
-        height: 340px;
+      .stats-section-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
       }
-      .hud-tag {
+      .stat-item:not(:last-child)::after {
         display: none;
       }
       .nav-menu {
@@ -1045,357 +1503,600 @@
 </head>
 <body>
 
-  <!-- Floating Embers Canvas -->
+  <!-- ========================================================
+       1. CINEMATIC PRELOADER SCREEN (Exact Match to Video Frame 1!)
+       ======================================================== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-bg-glow"></div>
+    <div class="preloader-top-bar">
+      <div class="preloader-counter" id="preloaderCounter">00%</div>
+      <div class="preloader-badge">SYSTEM INITIALIZATION // 2026</div>
+    </div>
+    <div class="preloader-center-content">
+      <h1 class="preloader-title">
+        THE <span class="highlight-red">DEVELOPER</span> WHO TURNS <span class="highlight-red">IDEAS</span> INTO <span class="highlight-red">SOFTWARE</span>
+      </h1>
+      <div class="preloader-progress-wrap">
+        <div class="preloader-progress-bar" id="preloaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live Canvas for Ambient Crimson Fire Sparks & Embers -->
   <canvas id="ambient-canvas"></canvas>
 
-  <!-- Ambient Glowing Background Spots -->
+  <!-- Ambient Radial Glows -->
   <div class="bg-glow-top"></div>
   <div class="bg-glow-mid"></div>
 
+  <!-- 3D Spinning Propeller / Geometric Star (Exact Match to Video Frame 5 & 20!) -->
+  <div class="spinning-geometric-wrapper">
+    <div class="spinning-propeller-3d">
+      <div class="propeller-blade blade-h"></div>
+      <div class="propeller-blade blade-v"></div>
+      <div class="propeller-center-core"></div>
+    </div>
+  </div>
+
+  <!-- Site Content Wrapper -->
   <div class="site-wrapper">
 
-    <!-- FLOATING TOP NAVIGATION -->
-    <header class="navbar">
-      <a href="#" class="nav-logo">
-        <span class="logo-dot"></span>
-        KHAGESWARARAO
-      </a>
-      <ul class="nav-menu">
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="Ravada_Khageswararao_Resume.pdf" target="_blank" class="nav-link">Resume</a></li>
-      </ul>
-      <a href="mailto:khageswararaor@gmail.com" class="nav-cta-btn">Let's Talk</a>
+    <!-- ========================================================
+         2. TOP NAVIGATION BAR
+         ======================================================== -->
+    <header>
+      <nav class="navbar slide-up" id="navbar">
+        <a href="#hero" class="nav-logo">
+          <div class="nav-logo-dot"></div>
+          <span>KHAGESWARARAO.</span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta-btn">LET'S TALK</a>
+      </nav>
     </header>
 
-    <!-- HERO SECTION (MATCHING VIDEO STYLE) -->
-    <section class="hero-section">
+    <!-- ========================================================
+         3. HERO SECTION (Cyberpunk Sci-Fi Glow & Portrait HUD)
+         ======================================================== -->
+    <section class="hero-section" id="hero">
+      
+      <!-- Left Hero Column -->
       <div class="hero-content">
-        <div class="hero-badge">
-          <span class="badge-indicator"></span>
-          CS ENGINEER • FULL-STACK & MOBILE BUILDER
+        <div class="hero-badge slide-up delay-1">
+          <div class="badge-indicator"></div>
+          <span>FULL-STACK ENGINEER & AI BUILDER</span>
         </div>
-        <h1 class="hero-title">KHAGESWARARAO</h1>
-        <div class="hero-subtitle">FRONTEND & MOBILE SOFTWARE ENGINEER</div>
-        <p class="hero-description">
-          Architecting high-performance enterprise platforms, real-time telemetry dashboards, and native Android services. Creator of <strong>Sankalp HRMS</strong>, <strong>LendSwift</strong>, and <strong>Harbour Link</strong>.
+
+        <h1 class="hero-title slide-up delay-2">
+          RAVADA KHAGESWARARAO
+        </h1>
+
+        <div class="hero-subtitle slide-up delay-3">
+          FRONTEND & MOBILE ENGINEER // FINTECH ARCHITECT
+        </div>
+
+        <p class="hero-description slide-up delay-4">
+          Architecting resilient, production-ready software systems — from client-side Web Crypto AES-256 financial wizards and real-time maritime AIS radar simulations to offline native Android foreground audio engines.
         </p>
-        <div class="hero-buttons">
+
+        <div class="hero-buttons slide-up delay-5">
           <a href="#projects" class="btn-primary">
-            Explore My Work
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            <span>EXPLORE MY WORK</span>
+            <span>↓</span>
           </a>
-          <a href="Ravada_Khageswararao_Resume.pdf" target="_blank" class="btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            Resume PDF
-          </a>
-          <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
+          <a href="#contact" class="btn-secondary">
+            <span>GET IN TOUCH</span>
+            <span>↗</span>
           </a>
         </div>
       </div>
 
-      <!-- Hero Right Visual: Crimson Glow Portrait + HUD Chips -->
-      <div class="hero-visual">
-        <div class="portrait-aura-box">
+      <!-- Right Hero Column: Glowing Portrait + Diagonal Laser Circuits -->
+      <div class="hero-visual slide-up delay-2">
+        <div class="hero-portrait-stage">
           
-          <!-- HUD Floating Chip 1 -->
-          <div class="hud-tag hud-tag-1">
-            <span class="hud-indicator-dot"></span>
-            REACT 18 & VITE
-          </div>
+          <!-- Diagonal Laser Circuit Lines Cutting Across Screen (Video Frame 4) -->
+          <svg class="laser-circuit-svg" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="laser-line" d="M 0 120 L 220 280 L 320 240 L 480 380 L 520 540" />
+            <path class="laser-line" d="M 480 80 L 340 180 L 160 380 L 60 500" style="animation-delay: 1.5s;" />
+          </svg>
 
-          <!-- HUD Floating Chip 2 -->
-          <div class="hud-tag hud-tag-2">
-            <span class="hud-indicator-dot"></span>
-            KOTLIN SDK 36
-          </div>
+          <!-- Floating Tech HUD Chips -->
+          <div class="hud-tag hud-tag-1">⚡ REACT 18 & VITE</div>
+          <div class="hud-tag hud-tag-2">🛡️ KOTLIN SDK 36</div>
 
-          <!-- HUD Floating Chip 3 -->
-          <div class="hud-tag hud-tag-3">
-            <span class="hud-indicator-dot"></span>
-            FINTECH ARCHITECT
+          <div class="hero-portrait-inner">
+            <img src="profile.jpg" alt="Ravada Khageswararao Portrait" class="hero-portrait-img">
+            <div class="portrait-red-aura"></div>
           </div>
-
-          <!-- Portrait Frame with Crimson Glow -->
-          <div class="portrait-frame">
-            <img src="profile.jpg" alt="Ravada Khageswararao - Frontend & Mobile Software Engineer">
-            <div class="portrait-frame-overlay"></div>
-          </div>
-
         </div>
       </div>
+
     </section>
 
-    <!-- FEATURED WORKS — PROJECTS SECTION (FRAME 8) -->
+    <!-- ========================================================
+         4. STATS COUNTER SECTION (Video Frame 22)
+         ======================================================== -->
+    <div class="stats-section-box slide-up delay-1" id="stats">
+      <div class="stat-item">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-label">Software Projects Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="8">0</div>
+        <div class="stat-label">Core Technologies Mastered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100">0</div>
+        <div class="stat-label">% Production Grade Quality</div>
+      </div>
+    </div>
+
+    <!-- Section Floating Shuriken Divider -->
+    <div class="section-floating-star" style="top: 1550px;">
+      <div class="star-rotator">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="100,10 125,75 190,100 125,125 100,190 75,125 10,100 75,75" stroke="#ff2a54" stroke-width="2" fill="rgba(255,42,84,0.06)" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         5. 3D CYLINDRICAL COVERFLOW CAROUSEL ("PROJECTS.")
+            (Exact Match to Video Frames 25, 28, 32!)
+         ======================================================== -->
     <section class="section-container" id="projects">
-      <div class="section-header-block">
-        <span class="section-tagline">Engineered Systems</span>
-        <h2 class="section-main-title">Featured Works.</h2>
+      <div class="section-header-block slide-up">
+        <span class="section-tagline">FEATURED WORK</span>
+        <h2 class="section-main-title">PROJECTS.</h2>
       </div>
 
-      <div class="projects-grid">
+      <!-- 3D Perspective Coverflow Carousel -->
+      <div class="carousel-3d-viewport slide-up delay-1" id="carouselViewport">
+        <div class="carousel-3d-stage" id="carouselStage">
 
-        <!-- 1. LendSwift Loan Platform -->
-        <div class="sci-project-card" onclick="openModal('lendswift')">
-          <div class="project-image-preview" style="background: linear-gradient(135deg, #1e3a8a, #0c4a6e);">
-            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 56px; font-weight: 900; color: #38bdf8;">₹</div>
-            <span class="project-badge-pill">Fintech Application</span>
-            <span class="project-year-badge">2026</span>
+          <!-- 1. LendSwift Multi-Step Loan Application -->
+          <div class="carousel-3d-card" data-index="0" onclick="cardClicked(0)">
+            <div class="project-image-box">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#1e1b4b,#312e81);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#ff2a54" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#cbd5e1;letter-spacing:1.5px;">8-STEP FINTECH APPLICATION</div>
+              </div>
+              <div class="project-image-overlay"></div>
+              <span class="card-badge-pill">Fintech Architect</span>
+              <span class="card-year-tag">2026</span>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <h3 class="project-card-title">LendSwift Loan Wizard</h3>
+                <p class="project-card-desc">
+                  Enterprise-grade 8-step digital lending application tackling the 45% industry drop-off rate in BFSI lending. Features client-side Web Crypto AES-256-GCM encryption with 72-hour auto-purge, real mathematical Aadhaar Verhoeff checksum algorithm, PAN entity validation, Indian PIN code lookup, client-side Canvas document compression under 2MB, HTML5 e-signature pad, reducing-balance EMI engine, and 15 automated Cypress test suites.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-chip">React 18</span>
+                  <span class="tech-chip">Vite</span>
+                  <span class="tech-chip">Zod</span>
+                  <span class="tech-chip">AES-256</span>
+                  <span class="tech-chip">Cypress</span>
+                </div>
+              </div>
+              <div class="card-action-btns">
+                <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('lendswift')">SPECS MODAL ↗</button>
+                <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">ECOSYSTEM</a>
+              </div>
+            </div>
           </div>
-          <h3 class="project-card-title">LendSwift Platform</h3>
-          <p class="project-card-desc">
-            Production-grade 8-step NBFC lending application with client-side Web Crypto AES-256-GCM encryption, Verhoeff Aadhaar KYC checksum algorithm, and 15 automated Cypress E2E test suites.
-          </p>
-          <div class="project-tech-pills">
-            <span class="tech-mini-pill">React 18</span>
-            <span class="tech-mini-pill">AES-256</span>
-            <span class="tech-mini-pill">Verhoeff</span>
-            <span class="tech-mini-pill">Cypress</span>
+
+          <!-- 2. Sankalp HRMS -->
+          <div class="carousel-3d-card" data-index="1" onclick="cardClicked(1)">
+            <div class="project-image-box">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#064e3b,#065f46);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#a7f3d0;letter-spacing:1.5px;">GOOGLE-INDEXED SPA</div>
+              </div>
+              <div class="project-image-overlay"></div>
+              <span class="card-badge-pill" style="color: #10b981; border-color: rgba(16,185,129,0.5);">Google Search Indexed</span>
+              <span class="card-year-tag">2025</span>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <h3 class="project-card-title">Sankalp HRMS Suite</h3>
+                <p class="project-card-desc">
+                  Officially indexed on Google Search ('sankalp ip khageswararao'). Enterprise Single Page Application managing complete employee lifecycles, punch-in attendance tracking, and multi-tier leave approval pipelines. Engineered dual-factor time-based OTP security, role-based access control (RBAC), and Recharts real-time payroll burn analytics.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-chip">React 18</span>
+                  <span class="tech-chip">Tailwind</span>
+                  <span class="tech-chip">Recharts</span>
+                  <span class="tech-chip">TOTP Security</span>
+                </div>
+              </div>
+              <div class="card-action-btns">
+                <a href="https://sankalp-frontend-kohl.vercel.app" target="_blank" class="btn-card btn-card-launch" onclick="event.stopPropagation()">LIVE APP ↗</a>
+                <a href="https://github.com/khageswararao-ship-it/SANKALP_FRONTEND" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+              </div>
+            </div>
           </div>
-          <div class="project-card-actions">
-            <a href="https://github.com/khageswararao-ship-it/lendswift-loan-application" target="_blank" class="btn-card-action btn-card-live" onclick="event.stopPropagation()">View Source Code ↗</a>
+
+          <!-- 3. Harbour Link -->
+          <div class="carousel-3d-card" data-index="2" onclick="cardClicked(2)">
+            <div class="project-image-box">
+              <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Radar" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600'">
+              <div class="project-image-overlay"></div>
+              <span class="card-badge-pill">Maritime Telemetry</span>
+              <span class="card-year-tag">2025</span>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <h3 class="project-card-title">Harbour Link Radar</h3>
+                <p class="project-card-desc">
+                  Zero-dependency maritime ferry transit portal with live AIS radar sweep simulation, vessel tracking telemetry, terminal load indicators, and 4-step ticket booking with automated turnstile QR pass generation.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-chip">HTML5 Canvas</span>
+                  <span class="tech-chip">AIS Radar</span>
+                  <span class="tech-chip">Telemetry</span>
+                </div>
+              </div>
+              <div class="card-action-btns">
+                <a href="https://khageswararao-ship-it.github.io/harbour-link" target="_blank" class="btn-card btn-card-launch" onclick="event.stopPropagation()">LIVE APP ↗</a>
+                <a href="https://github.com/khageswararao-ship-it/harbour-link" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+              </div>
+            </div>
           </div>
+
+          <!-- 4. Native Android Offline Music Player -->
+          <div class="carousel-3d-card" data-index="3" onclick="cardClicked(3)">
+            <div class="project-image-box">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#78350f,#9a3412);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5">
+                  <path d="M9 18V5l12-2v13"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <circle cx="18" cy="16" r="3"/>
+                </svg>
+                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#fed7aa;letter-spacing:1.5px;">KOTLIN // ANDROID SDK 36</div>
+              </div>
+              <div class="project-image-overlay"></div>
+              <span class="card-badge-pill" style="color:#fbbf24; border-color:rgba(251,191,36,0.5);">Native Android</span>
+              <span class="card-year-tag">2025</span>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <h3 class="project-card-title">Native Audio Player</h3>
+                <p class="project-card-desc">
+                  Offline Android music player built in Kotlin targeting Android SDK 36. Implements an uninterrupted background Android Foreground Service (MusicService.kt) and dynamic MediaStore ContentResolver asynchronous storage scanning.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-chip">Kotlin</span>
+                  <span class="tech-chip">SDK 36</span>
+                  <span class="tech-chip">Foreground Service</span>
+                </div>
+              </div>
+              <div class="card-action-btns">
+                <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('musicplayer')">VIEW ARCHITECTURE</button>
+                <a href="https://github.com/khageswararao-ship-it/Music_Player" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. PayPulse Neo -->
+          <div class="carousel-3d-card" data-index="4" onclick="cardClicked(4)">
+            <div class="project-image-box">
+              <img src="assets/paypulse.png" alt="PayPulse Neo Soundbox" onerror="this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=600'">
+              <div class="project-image-overlay"></div>
+              <span class="card-badge-pill">Soundbox & Payments</span>
+              <span class="card-year-tag">2026</span>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <h3 class="project-card-title">PayPulse Neo</h3>
+                <p class="project-card-desc">
+                  Next-generation merchant payment simulator featuring dynamic UPI QR generation, instant audio soundbox confirmation, merchant PIN verification, and interactive gamified loyalty rewards.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-chip">Web Audio API</span>
+                  <span class="tech-chip">UPI Engine</span>
+                  <span class="tech-chip">Fintech</span>
+                </div>
+              </div>
+              <div class="card-action-btns">
+                <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('paypulse')">SYSTEM MODAL ↗</button>
+                <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">ECOSYSTEM</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Blood Donation Management System -->
+          <div class="carousel-3d-card" data-index="5" onclick="cardClicked(5)">
+            <div class="project-image-box">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#881337,#9f1239);display:flex;align-items:center;justify-content:center;position:relative;">
+                <svg width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.5">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <div style="position:absolute;bottom:10px;font-family:var(--font-tech);font-size:11px;color:#fecdd3;letter-spacing:1.5px;">HEALTHCARE DATABASE</div>
+              </div>
+              <div class="project-image-overlay"></div>
+              <span class="card-badge-pill" style="color:#f43f5e; border-color:rgba(244,63,94,0.5);">Healthcare Backend</span>
+              <span class="card-year-tag">2024</span>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <h3 class="project-card-title">Blood Donation Portal</h3>
+                <p class="project-card-desc">
+                  Full-stack healthcare web application managing regional blood inventory levels, recipient matching algorithms, donor scheduling, and role-based access control.
+                </p>
+                <div class="project-tech-tags">
+                  <span class="tech-chip">Python</span>
+                  <span class="tech-chip">Flask</span>
+                  <span class="tech-chip">SQLite</span>
+                </div>
+              </div>
+              <div class="card-action-btns">
+                <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('blooddonation')">EXPLORE SYSTEM</button>
+                <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        <!-- 2. Sankalp HRMS Platform -->
-        <div class="sci-project-card" onclick="openModal('sankalp')">
-          <div class="project-image-preview" style="background: linear-gradient(135deg, #064e3b, #047857);">
-            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 900; font-family: var(--font-tech); color: #34d399;">SANKALP</div>
-            <span class="project-badge-pill">Google-Indexed</span>
-            <span class="project-year-badge">2025</span>
-          </div>
-          <h3 class="project-card-title">Sankalp HRMS</h3>
-          <p class="project-card-desc">
-            Enterprise workforce operations platform with time-based OTP security, multi-tier leave approval pipelines, Recharts real-time payroll analytics, and Capacitor 8.5 Android compilation.
-          </p>
-          <div class="project-tech-pills">
-            <span class="tech-mini-pill">React 18</span>
-            <span class="tech-mini-pill">Vite</span>
-            <span class="tech-mini-pill">Recharts</span>
-            <span class="tech-mini-pill">Capacitor</span>
-          </div>
-          <div class="project-card-actions">
-            <a href="https://sankalp-frontend-kohl.vercel.app" target="_blank" class="btn-card-action btn-card-live" onclick="event.stopPropagation()">Live App ↗</a>
-            <a href="https://github.com/khageswararao-ship-it/SANKALP_FRONTEND" target="_blank" class="btn-card-action btn-card-repo" onclick="event.stopPropagation()">GitHub</a>
-          </div>
+      <!-- Carousel Navigation Controls & Dots -->
+      <div class="carousel-controls-bar slide-up delay-2">
+        <button class="carousel-nav-arrow" onclick="rotate3DCarousel(-1)" aria-label="Previous">←</button>
+        <div class="carousel-dots-wrap" id="carouselDots">
+          <div class="carousel-dot active" onclick="jumpTo3DCard(0)"></div>
+          <div class="carousel-dot" onclick="jumpTo3DCard(1)"></div>
+          <div class="carousel-dot" onclick="jumpTo3DCard(2)"></div>
+          <div class="carousel-dot" onclick="jumpTo3DCard(3)"></div>
+          <div class="carousel-dot" onclick="jumpTo3DCard(4)"></div>
+          <div class="carousel-dot" onclick="jumpTo3DCard(5)"></div>
         </div>
-
-        <!-- 3. Harbour Link Ferry Transit -->
-        <div class="sci-project-card" onclick="openModal('harbourlink')">
-          <div class="project-image-preview">
-            <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Transit" onerror="this.style.display='none'">
-            <span class="project-badge-pill">Maritime Telemetry</span>
-            <span class="project-year-badge">2025</span>
-          </div>
-          <h3 class="project-card-title">Harbour Link</h3>
-          <p class="project-card-desc">
-            High-performance maritime transit dashboard with zero external runtime dependencies. Built-in interactive real-time AIS radar sweep simulation, vessel tracking, and QR pass ticketing wizard.
-          </p>
-          <div class="project-tech-pills">
-            <span class="tech-mini-pill">HTML5 Canvas</span>
-            <span class="tech-mini-pill">Glassmorphism</span>
-            <span class="tech-mini-pill">Radar AIS</span>
-          </div>
-          <div class="project-card-actions">
-            <a href="https://khageswararao-ship-it.github.io/harbour-link" target="_blank" class="btn-card-action btn-card-live" onclick="event.stopPropagation()">Live App ↗</a>
-            <a href="https://github.com/khageswararao-ship-it/harbour-link" target="_blank" class="btn-card-action btn-card-repo" onclick="event.stopPropagation()">GitHub</a>
-          </div>
-        </div>
-
-        <!-- 4. Native Android Offline Music Player -->
-        <div class="sci-project-card" onclick="openModal('musicplayer')">
-          <div class="project-image-preview" style="background: linear-gradient(135deg, #7c2d12, #9a3412);">
-            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 42px;">🎵</div>
-            <span class="project-badge-pill">Android SDK 36</span>
-            <span class="project-year-badge">2025</span>
-          </div>
-          <h3 class="project-card-title">Native Audio Player</h3>
-          <p class="project-card-desc">
-            Offline Android music player built in Kotlin targeting Android SDK 36. Implements an uninterrupted background Android Foreground Service (MusicService.kt) and dynamic MediaStore ContentResolver.
-          </p>
-          <div class="project-tech-pills">
-            <span class="tech-mini-pill">Kotlin</span>
-            <span class="tech-mini-pill">Android 36</span>
-            <span class="tech-mini-pill">Foreground Service</span>
-          </div>
-          <div class="project-card-actions">
-            <a href="https://github.com/khageswararao-ship-it/Music_Player" target="_blank" class="btn-card-action btn-card-live" onclick="event.stopPropagation()">View Source ↗</a>
-          </div>
-        </div>
-
-        <!-- 5. PayPulse Neo -->
-        <div class="sci-project-card" onclick="openModal('paypulse')">
-          <div class="project-image-preview">
-            <img src="assets/paypulse.png" alt="PayPulse Neo Soundbox" onerror="this.style.display='none'">
-            <span class="project-badge-pill">Fintech Soundbox</span>
-            <span class="project-year-badge">2026</span>
-          </div>
-          <h3 class="project-card-title">PayPulse Neo</h3>
-          <p class="project-card-desc">
-            Next-gen merchant payment simulator featuring dynamic UPI QR generation, instant audio soundbox confirmation, merchant PIN verification, and interactive gamified loyalty rewards.
-          </p>
-          <div class="project-tech-pills">
-            <span class="tech-mini-pill">Web Audio</span>
-            <span class="tech-mini-pill">UPI QR</span>
-            <span class="tech-mini-pill">Fintech</span>
-          </div>
-          <div class="project-card-actions">
-            <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card-action btn-card-live" onclick="event.stopPropagation()">Explore Ecosystem ↗</a>
-          </div>
-        </div>
-
-        <!-- 6. Blood Donation Portal -->
-        <div class="sci-project-card" onclick="openModal('blooddonation')">
-          <div class="project-image-preview" style="background: linear-gradient(135deg, #881337, #9f1239);">
-            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 42px;">🩸</div>
-            <span class="project-badge-pill">Healthcare Backend</span>
-            <span class="project-year-badge">2024</span>
-          </div>
-          <h3 class="project-card-title">Blood Donation Portal</h3>
-          <p class="project-card-desc">
-            Full-stack web application built with Python (Flask) and SQLite database, managing regional blood inventory levels, recipient matching algorithms, and donor scheduling.
-          </p>
-          <div class="project-tech-pills">
-            <span class="tech-mini-pill">Python</span>
-            <span class="tech-mini-pill">Flask</span>
-            <span class="tech-mini-pill">SQLite</span>
-          </div>
-          <div class="project-card-actions">
-            <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card-action btn-card-live" onclick="event.stopPropagation()">View Source ↗</a>
-          </div>
-        </div>
-
+        <button class="carousel-nav-arrow" onclick="rotate3DCarousel(1)" aria-label="Next">→</button>
       </div>
     </section>
 
-    <!-- ABOUT ME SECTION (FRAME 12 - HANGING FRAME & BIO) -->
+    <!-- ========================================================
+         6. ABOUT ME SECTION & HANGING FRAMED PORTRAIT
+            (Exact Match to Video Frames 44 & 45!)
+         ======================================================== -->
     <section class="section-container" id="about">
-      <div class="section-header-block">
-        <span class="section-tagline">Background & Vision</span>
-        <h2 class="section-main-title">About Me.</h2>
+      <div class="section-header-block slide-up">
+        <span class="section-tagline">BACKGROUND & VISION</span>
+        <h2 class="section-main-title">ABOUT ME.</h2>
       </div>
 
-      <div class="about-grid">
-        <!-- Bio Card -->
-        <div class="about-bio-card">
-          <p class="about-bio-text">
-            I am a <strong>Frontend & Mobile Software Engineer</strong> and Computer Science student at <strong>Dr. B.R. Ambedkar University</strong> (Kiranmayi Degree College). I architect high-performance, full-cycle software ranging from time-based OTP security workflows and real-time radar telemetry dashboards to native Android foreground audio engines.
+      <div class="about-layout-grid">
+        
+        <!-- Left: Bio & Skills Matrix -->
+        <div class="about-glass-box slide-up delay-1">
+          <p class="about-paragraph">
+            I am a <strong>Frontend & Mobile Software Engineer</strong> and Computer Science student at <strong>Dr. B.R. Ambedkar University</strong> (Kiranmayi Degree College). I engineer high-performance, full-cycle software ranging from time-based OTP security workflows and real-time radar telemetry dashboards to native Android foreground audio engines.
           </p>
-          <p class="about-bio-text" style="color: #a1a1aa;">
+          <p class="about-paragraph">
             Passionate about writing clean, modular code with zero runtime bloat. I have designed and deployed over 15+ software applications across web platforms, native Android utilities, and full-stack systems with public Google Search recognition.
           </p>
 
-          <div class="about-tech-matrix">
-            <div class="matrix-title">Technical Competencies</div>
-            <div class="matrix-chips">
-              <span class="matrix-chip">JavaScript (ES6+)</span>
-              <span class="matrix-chip">React.js (v18)</span>
-              <span class="matrix-chip">Kotlin (Android SDK 36)</span>
-              <span class="matrix-chip">Tailwind CSS</span>
-              <span class="matrix-chip">Vite</span>
-              <span class="matrix-chip">Python (Flask)</span>
-              <span class="matrix-chip">HTML5 Canvas API</span>
-              <span class="matrix-chip">SQLite</span>
-              <span class="matrix-chip">Git / CI/CD</span>
+          <div class="tech-skills-matrix">
+            <div class="matrix-title">CORE TECHNICAL COMPETENCIES</div>
+            <div class="matrix-badges-row">
+              <span class="matrix-badge">JavaScript (ES6+)</span>
+              <span class="matrix-badge">React.js (v18)</span>
+              <span class="matrix-badge">Kotlin (SDK 36)</span>
+              <span class="matrix-badge">Tailwind CSS</span>
+              <span class="matrix-badge">Vite</span>
+              <span class="matrix-badge">Python (Flask)</span>
+              <span class="matrix-badge">HTML5 Canvas API</span>
+              <span class="matrix-badge">SQLite</span>
+              <span class="matrix-badge">Git & CI/CD</span>
             </div>
           </div>
         </div>
 
-        <!-- Hanging Framed Portrait (Exact Visual from Video) -->
-        <div class="hanging-frame-wrapper">
-          <div class="hanging-strings">
+        <!-- Right: Realistic Hanging Photo Frame with Pendulum Swing (Video Frame 45!) -->
+        <div class="hanging-portrait-stage slide-up delay-2">
+          <div class="hanging-assembly">
             <div class="pin-hook"></div>
-            <div class="string-left"></div>
-            <div class="string-right"></div>
-          </div>
-          <div class="hanging-framed-photo">
-            <img src="profile.jpg" alt="Ravada Khageswararao Framed Portrait">
+            <svg class="hanging-strings-svg" viewBox="0 0 260 110">
+              <line x1="130" y1="0" x2="25" y2="105" stroke="#a1a1aa" stroke-width="1.5" />
+              <line x1="130" y1="0" x2="235" y2="105" stroke="#a1a1aa" stroke-width="1.5" />
+            </svg>
+            <div class="hanging-picture-frame">
+              <div class="hanging-picture-inner">
+                <img src="profile.jpg" alt="Ravada Khageswararao Framed Portrait">
+                <div class="hanging-glass-shine"></div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- SERVICES & EXPERTISE SECTION (FRAME 14) -->
+    <!-- ========================================================
+         7. SERVICES & PRICING ACCORDION (Video Frames 54 & 55)
+         ======================================================== -->
     <section class="section-container" id="services">
-      <div class="section-header-block">
-        <span class="section-tagline">What I Do</span>
-        <h2 class="section-main-title">Services & Expertise.</h2>
+      <div class="section-header-block slide-up">
+        <span class="section-tagline">WHAT I DO</span>
+        <h2 class="section-main-title">SERVICES & PRICING.</h2>
       </div>
 
-      <div class="services-accordion-list">
-        <div class="service-row" onclick="openModal('service1')">
-          <div class="service-left">
-            <span class="service-index">01</span>
-            <span class="service-name">Enterprise Single Page Applications (SPAs)</span>
+      <div class="services-accordion-wrap slide-up delay-1">
+        
+        <!-- Service 1 -->
+        <div class="service-accordion-row open" onclick="toggleService(this)">
+          <div class="service-main-bar">
+            <div class="service-num-title">
+              <span class="service-index">01</span>
+              <span class="service-title">Full-Stack Web Applications</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span class="service-pricing-pill">STARTS FROM ₹15,000</span>
+              <span class="service-expand-icon">+</span>
+            </div>
           </div>
-          <span class="service-tag">React 18 • Vite • Tailwind</span>
-          <span class="service-arrow">→</span>
+          <div class="service-dropdown-details">
+            <div class="service-dropdown-inner">
+              Engineering high-performance enterprise SPAs with React 18, Vite, and Tailwind CSS. Complete with role-based access control, real-time analytics, and modular state architecture.
+              <div class="service-deliverables-list">
+                <span class="deliverable-chip">⚡ React 18 & Vite</span>
+                <span class="deliverable-chip">🛡️ RBAC Security</span>
+                <span class="deliverable-chip">📊 Recharts Dashboards</span>
+                <span class="deliverable-chip">📱 Mobile Responsive</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="service-row" onclick="openModal('service2')">
-          <div class="service-left">
-            <span class="service-index">02</span>
-            <span class="service-name">Native Android Utilities & Services</span>
+        <!-- Service 2 -->
+        <div class="service-accordion-row" onclick="toggleService(this)">
+          <div class="service-main-bar">
+            <div class="service-num-title">
+              <span class="service-index">02</span>
+              <span class="service-title">Native Android Utilities & Apps</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span class="service-pricing-pill">STARTS FROM ₹18,000</span>
+              <span class="service-expand-icon">+</span>
+            </div>
           </div>
-          <span class="service-tag">Kotlin • SDK 36 • Foreground</span>
-          <span class="service-arrow">→</span>
+          <div class="service-dropdown-details">
+            <div class="service-dropdown-inner">
+              Native Android engineering using Kotlin targeting Android SDK 36. Background Foreground Services, notification controls, ContentResolver dynamic storage querying, and battery-efficient lifecycles.
+              <div class="service-deliverables-list">
+                <span class="deliverable-chip">🤖 Kotlin & SDK 36</span>
+                <span class="deliverable-chip">🎵 Foreground Service</span>
+                <span class="deliverable-chip">📂 MediaStore Querying</span>
+                <span class="deliverable-chip">🔒 Scoped Storage Safe</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="service-row" onclick="openModal('service3')">
-          <div class="service-left">
-            <span class="service-index">03</span>
-            <span class="service-name">Fintech Wizards & Cryptographic Security</span>
+        <!-- Service 3 -->
+        <div class="service-accordion-row" onclick="toggleService(this)">
+          <div class="service-main-bar">
+            <div class="service-num-title">
+              <span class="service-index">03</span>
+              <span class="service-title">Fintech Systems & Cryptographic KYC</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span class="service-pricing-pill">TYPICAL: ₹12,000 - ₹25,000</span>
+              <span class="service-expand-icon">+</span>
+            </div>
           </div>
-          <span class="service-tag">AES-256 • Verhoeff KYC • Zod</span>
-          <span class="service-arrow">→</span>
+          <div class="service-dropdown-details">
+            <div class="service-dropdown-inner">
+              Production-grade loan onboarding wizards with mathematical Verhoeff KYC checksum validation, Web Crypto AES-256-GCM client-side encryption, and automated Cypress test suites.
+              <div class="service-deliverables-list">
+                <span class="deliverable-chip">🔐 Web Crypto AES-256</span>
+                <span class="deliverable-chip">🔢 Verhoeff Algorithm</span>
+                <span class="deliverable-chip">✍️ HTML5 Canvas Signature</span>
+                <span class="deliverable-chip">🧪 Cypress E2E Tested</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="service-row" onclick="openModal('service4')">
-          <div class="service-left">
-            <span class="service-index">04</span>
-            <span class="service-name">Real-Time Telemetry & Radar Simulations</span>
+        <!-- Service 4 -->
+        <div class="service-accordion-row" onclick="toggleService(this)">
+          <div class="service-main-bar">
+            <div class="service-num-title">
+              <span class="service-index">04</span>
+              <span class="service-title">Real-Time Dashboards & Radar Telemetry</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span class="service-pricing-pill">₹10,000 - ₹22,000</span>
+              <span class="service-expand-icon">+</span>
+            </div>
           </div>
-          <span class="service-tag">AIS Radar • HTML5 Canvas • Recharts</span>
-          <span class="service-arrow">→</span>
+          <div class="service-dropdown-details">
+            <div class="service-dropdown-inner">
+              Zero-dependency interactive simulations with live HTML5 Canvas radar sweeps, live vessel and telemetry tracking, speed indicators, and automated turnstile ticketing wizards.
+              <div class="service-deliverables-list">
+                <span class="deliverable-chip">📡 HTML5 Canvas AIS Radar</span>
+                <span class="deliverable-chip">🎟️ Turnstile QR Ticketing</span>
+                <span class="deliverable-chip">⚡ 0 Runtime Bloat</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Service 5 -->
+        <div class="service-accordion-row" onclick="toggleService(this)">
+          <div class="service-main-bar">
+            <div class="service-num-title">
+              <span class="service-index">05</span>
+              <span class="service-title">Interactive 3D Web Experiences</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 16px;">
+              <span class="service-pricing-pill">₹15,000 - ₹30,000</span>
+              <span class="service-expand-icon">+</span>
+            </div>
+          </div>
+          <div class="service-dropdown-details">
+            <div class="service-dropdown-inner">
+              Ultra-high-end cyberpunk portfolios and interactive promotional websites with 3D coverflow carousels, particle physics, laser circuits, and cinematic preloader animations.
+              <div class="service-deliverables-list">
+                <span class="deliverable-chip">🌐 3D Cylindrical Coverflow</span>
+                <span class="deliverable-chip">✨ Particle Shaders & Physics</span>
+                <span class="deliverable-chip">🚀 60 FPS Hardware Acceleration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- ========================================================
+         8. CONTACT SECTION
+         ======================================================== -->
     <section class="section-container" id="contact">
-      <div class="contact-card-box">
-        <h2 class="contact-heading">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
-        <p class="contact-sub">
+      <div class="contact-cta-card slide-up">
+        <h2 class="contact-title">LET'S BUILD SOMETHING EXTRAORDINARY.</h2>
+        <p class="contact-subtitle">
           Have an enterprise application, fintech platform, or mobile utility to build? Let's connect and make it real.
         </p>
-        <div class="social-links-row">
-          <a href="mailto:khageswararaor@gmail.com" class="social-btn">
+        <div class="contact-buttons-row">
+          <a href="mailto:khageswararaor@gmail.com" class="contact-social-btn">
             ✉️ khageswararaor@gmail.com
           </a>
-          <a href="https://github.com/khageswararao-ship-it" target="_blank" class="social-btn">
+          <a href="https://github.com/khageswararao-ship-it" target="_blank" class="contact-social-btn">
             🐱 GitHub Profile
           </a>
-          <a href="https://www.linkedin.com/in/khageswararao-ravada/" target="_blank" class="social-btn">
+          <a href="https://www.linkedin.com/in/khageswararao-ravada/" target="_blank" class="contact-social-btn">
             💼 LinkedIn Profile
           </a>
-          <a href="Ravada_Khageswararao_Resume.pdf" target="_blank" class="social-btn">
+          <a href="Ravada_Khageswararao_Resume.pdf" target="_blank" class="contact-social-btn">
             📄 Resume PDF
           </a>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer class="footer">
       <p>© 2026 RAVADA KHAGESWARARAO — DESIGNED FOR PERFORMANCE & SPEED.</p>
     </footer>
 
   </div>
 
-  <!-- HUD MODAL -->
+  <!-- HUD DETAIL MODAL -->
   <div class="hud-modal-overlay" id="hudModal" onclick="closeModal(event)">
     <div class="hud-modal-card" onclick="event.stopPropagation()">
       <button class="hud-modal-close" onclick="closeModal()">✕</button>
@@ -1403,13 +2104,43 @@
     </div>
   </div>
 
-  <!-- PARTICLES & AMBIENT EMBER SCRIPT -->
+  <!-- ========================================================
+       JAVASCRIPT: PRELOADER, 3D CAROUSEL, PARTICLES, SLIDE-UP
+       ======================================================== -->
   <script>
+    // ----------------------------------------------------
+    // 1. CINEMATIC PRELOADER ANIMATION (00% -> 100%)
+    // ----------------------------------------------------
+    const preloader = document.getElementById('preloader');
+    const counterEl = document.getElementById('preloaderCounter');
+    const barEl = document.getElementById('preloaderBar');
+
+    let currentProgress = 0;
+    const progressInterval = setInterval(() => {
+      // Accelerate progress smoothly
+      const increment = Math.floor(Math.random() * 8) + 3;
+      currentProgress = Math.min(100, currentProgress + increment);
+      
+      counterEl.innerText = (currentProgress < 10 ? '0' : '') + currentProgress + '%';
+      barEl.style.width = currentProgress + '%';
+
+      if (currentProgress >= 100) {
+        clearInterval(progressInterval);
+        setTimeout(() => {
+          preloader.classList.add('completed');
+          // Trigger first slide-up animations
+          triggerSlideUp();
+        }, 350);
+      }
+    }, 45);
+
+    // ----------------------------------------------------
+    // 2. LIVE PARTICLES & AMBIENT EMBER CANVAS
+    // ----------------------------------------------------
     const canvas = document.getElementById('ambient-canvas');
     const ctx = canvas.getContext('2d');
-
     let particles = [];
-    const particleCount = 45;
+    const particleCount = 55;
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -1424,10 +2155,10 @@
       }
       reset() {
         this.x = Math.random() * canvas.width;
-        this.y = canvas.height + Math.random() * 50;
+        this.y = canvas.height + Math.random() * 40;
         this.size = Math.random() * 2.2 + 0.8;
-        this.speedY = Math.random() * 1.2 + 0.3;
-        this.speedX = (Math.random() - 0.5) * 0.6;
+        this.speedY = Math.random() * 1.4 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.8;
         this.opacity = Math.random() * 0.7 + 0.3;
         this.fade = Math.random() * 0.005 + 0.002;
         this.color = Math.random() > 0.3 ? '255, 42, 84' : '239, 68, 68';
@@ -1467,8 +2198,195 @@
     }
     animateEmbers();
 
-    // Modal data
-    const modalData = {
+    // ----------------------------------------------------
+    // 3. SLIDE-UP ANIMATIONS (Intersection Observer)
+    // ----------------------------------------------------
+    function triggerSlideUp() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            if (entry.target.id === 'stats' || entry.target.classList.contains('stats-section-box')) {
+              startStatsCounters();
+            }
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.slide-up').forEach(el => observer.observe(el));
+    }
+
+    // ----------------------------------------------------
+    // 4. STATS COUNTER COUNT-UP
+    // ----------------------------------------------------
+    let statsStarted = false;
+    function startStatsCounters() {
+      if (statsStarted) return;
+      statsStarted = true;
+      document.querySelectorAll('.stat-number').forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 1800;
+        const stepTime = 30;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            stat.innerText = target + (target === 100 ? '%' : '+');
+            clearInterval(timer);
+          } else {
+            stat.innerText = Math.floor(current) + (target === 100 ? '%' : '+');
+          }
+        }, stepTime);
+      });
+    }
+
+    // ----------------------------------------------------
+    // 5. TRUE 3D CYLINDRICAL COVERFLOW CAROUSEL
+    //    (Exact Match to Video Frame 32!)
+    // ----------------------------------------------------
+    let current3DIndex = 0;
+    const cards3D = document.querySelectorAll('.carousel-3d-card');
+    const dots3D = document.querySelectorAll('.carousel-dot');
+    const total3DCards = cards3D.length;
+
+    function render3DCarousel() {
+      const isMobile = window.innerWidth < 768;
+      const xOffset = isMobile ? 220 : 320;
+      const zOffset = isMobile ? -80 : -120;
+      const farXOffset = isMobile ? 380 : 540;
+
+      cards3D.forEach((card, idx) => {
+        // Calculate shortest circular distance
+        let diff = idx - current3DIndex;
+        if (diff > total3DCards / 2) diff -= total3DCards;
+        if (diff < -total3DCards / 2) diff += total3DCards;
+
+        card.classList.remove('active-center');
+
+        if (diff === 0) {
+          // Center Active Card
+          card.classList.add('active-center');
+          card.style.transform = `translateX(0px) translateZ(140px) rotateY(0deg) scale(1.05)`;
+          card.style.opacity = '1';
+          card.style.zIndex = '10';
+          card.style.pointerEvents = 'auto';
+        } else if (diff === 1) {
+          // Immediate Right Card
+          card.style.transform = `translateX(${xOffset}px) translateZ(${zOffset}px) rotateY(-32deg) scale(0.88)`;
+          card.style.opacity = '0.65';
+          card.style.zIndex = '6';
+          card.style.pointerEvents = 'auto';
+        } else if (diff === -1) {
+          // Immediate Left Card
+          card.style.transform = `translateX(-${xOffset}px) translateZ(${zOffset}px) rotateY(32deg) scale(0.88)`;
+          card.style.opacity = '0.65';
+          card.style.zIndex = '6';
+          card.style.pointerEvents = 'auto';
+        } else if (diff === 2) {
+          // Far Right
+          card.style.transform = `translateX(${farXOffset}px) translateZ(${zOffset * 2}px) rotateY(-48deg) scale(0.72)`;
+          card.style.opacity = '0.28';
+          card.style.zIndex = '3';
+          card.style.pointerEvents = 'none';
+        } else if (diff === -2) {
+          // Far Left
+          card.style.transform = `translateX(-${farXOffset}px) translateZ(${zOffset * 2}px) rotateY(48deg) scale(0.72)`;
+          card.style.opacity = '0.28';
+          card.style.zIndex = '3';
+          card.style.pointerEvents = 'none';
+        } else {
+          // Hidden Behind
+          card.style.transform = `translateX(0px) translateZ(-350px) rotateY(180deg) scale(0.5)`;
+          card.style.opacity = '0';
+          card.style.zIndex = '1';
+          card.style.pointerEvents = 'none';
+        }
+      });
+
+      // Update dots
+      dots3D.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === current3DIndex);
+      });
+    }
+
+    function rotate3DCarousel(dir) {
+      current3DIndex = (current3DIndex + dir + total3DCards) % total3DCards;
+      render3DCarousel();
+    }
+
+    function jumpTo3DCard(index) {
+      current3DIndex = index;
+      render3DCarousel();
+    }
+
+    function cardClicked(index) {
+      if (index === current3DIndex) {
+        // If clicked on active center card, open its modal
+        const keys = ['lendswift', 'sankalp', 'harbourlink', 'musicplayer', 'paypulse', 'blooddonation'];
+        openModal(keys[index]);
+      } else {
+        jumpTo3DCard(index);
+      }
+    }
+
+    // Touch & Mouse Drag Support for Carousel
+    let startX = 0;
+    let isDragging = false;
+    const viewport = document.getElementById('carouselViewport');
+
+    viewport.addEventListener('mousedown', (e) => {
+      startX = e.clientX;
+      isDragging = true;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      const endX = e.clientX;
+      if (startX - endX > 50) rotate3DCarousel(1);
+      else if (endX - startX > 50) rotate3DCarousel(-1);
+    });
+
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) rotate3DCarousel(1);
+      else if (endX - startX > 50) rotate3DCarousel(-1);
+    }, { passive: true });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') rotate3DCarousel(-1);
+      if (e.key === 'ArrowRight') rotate3DCarousel(1);
+    });
+
+    window.addEventListener('resize', render3DCarousel);
+    render3DCarousel();
+
+    // ----------------------------------------------------
+    // 6. ACCORDION EXPAND / COLLAPSE
+    // ----------------------------------------------------
+    function toggleService(row) {
+      const isOpen = row.classList.contains('open');
+      document.querySelectorAll('.service-accordion-row').forEach(r => r.classList.remove('open'));
+      if (!isOpen) {
+        row.classList.add('open');
+      }
+    }
+
+    // ----------------------------------------------------
+    // 7. SPEC MODAL SYSTEM
+    // ----------------------------------------------------
+    const projectDetails = {
       lendswift: {
         title: "LendSwift Multi-Step Loan Application",
         year: "2026",
@@ -1514,48 +2432,20 @@
       blooddonation: {
         title: "Blood Donation Management System",
         year: "2024",
-        role: "Full Full Stack Developer",
+        role: "Full Stack Developer",
         stack: "Python (Flask), SQLite, Jinja2, Bootstrap",
         desc: "Full-stack healthcare web application managing regional blood inventory levels, recipient matching algorithms, donor scheduling, and role-based access control.",
         repo: "https://github.com/khageswararao-ship-it"
-      },
-      service1: {
-        title: "Enterprise Single Page Applications (SPAs)",
-        year: "Architecture & Frontend",
-        role: "Lead Frontend Engineer",
-        stack: "React 18, Vite, React Router DOM v6, Tailwind CSS, Recharts",
-        desc: "Architecting responsive, high-performance web applications managing employee lifecycles, authentication pipelines, and real-time telemetry dashboards."
-      },
-      service2: {
-        title: "Native Android Utilities & Services",
-        year: "Mobile Engineering",
-        role: "Android Developer",
-        stack: "Kotlin, Android SDK 36, Foreground Services, ContentResolver",
-        desc: "Building rock-solid offline mobile applications with uninterrupted background foreground audio playback and dynamic storage scanning."
-      },
-      service3: {
-        title: "Fintech Wizards & Cryptographic Security",
-        year: "Fintech Systems",
-        role: "Full Stack Engineer",
-        stack: "AES-256-GCM, Web Crypto API, Zod, Aadhaar Verhoeff KYC",
-        desc: "Designing production-grade multi-step form applications with real-time mathematical KYC checksum validation and client-side encryption."
-      },
-      service4: {
-        title: "Real-Time Telemetry & Radar Simulations",
-        year: "Web Graphics",
-        role: "Frontend Engineer",
-        stack: "HTML5 Canvas API, AIS Radar Simulation, Glassmorphism",
-        desc: "Zero-dependency maritime transit simulations with speed telemetry, countdown timers, and turnstile QR pass generation."
       }
     };
 
     function openModal(key) {
-      const p = modalData[key];
+      const p = projectDetails[key];
       if (!p) return;
       const html = `
-        <div style="font-family: var(--font-tech); font-size: 11px; color: var(--crimson-neon); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;">${p.role} • ${p.year}</div>
-        <h2 style="font-family: var(--font-display); font-size: 26px; color: #fff; margin-bottom: 12px;">${p.title}</h2>
-        <div style="background: rgba(255,255,255,0.06); padding: 10px 16px; border-radius: 12px; font-family: var(--font-tech); font-size: 11px; color: #e4e4e7; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.1);">
+        <div style="font-family: var(--font-tech); font-size: 11px; color: var(--crimson-neon); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">${p.role} • ${p.year}</div>
+        <h2 style="font-family: var(--font-display); font-size: 26px; color: #fff; margin-bottom: 14px;">${p.title}</h2>
+        <div style="background: rgba(255,255,255,0.06); padding: 12px 18px; border-radius: 12px; font-family: var(--font-tech); font-size: 11px; color: #e4e4e7; margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.1);">
           <strong>STACK:</strong> ${p.stack}
         </div>
         <p style="font-size: 14px; color: #a1a1aa; line-height: 1.7; margin-bottom: 24px;">${p.desc}</p>
