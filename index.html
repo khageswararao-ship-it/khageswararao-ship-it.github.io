@@ -755,22 +755,31 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(20px, 2.8vw, 38px);
       font-weight: 900;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+      line-height: 1.05;
       text-transform: uppercase;
       background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       text-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
       word-break: normal;
     }
 
-    .hero-title .name-first,
+    .hero-title .name-first {
+      display: block;
+      font-size: clamp(34px, 4.6vw, 60px);
+      letter-spacing: 1px;
+      line-height: 1.02;
+      margin-bottom: 2px;
+      white-space: nowrap;
+    }
+
     .hero-title .name-last {
       display: block;
+      font-size: clamp(25px, 3.3vw, 43px);
+      letter-spacing: -0.5px;
+      line-height: 1.06;
       white-space: nowrap;
     }
 
@@ -878,6 +887,7 @@
       align-items: center;
       position: relative;
       z-index: 4;
+      flex-shrink: 0;
     }
 
     .hero-portrait-stage {
@@ -1842,7 +1852,124 @@
     }
 
     /* ========================================================
-       10. CONTACT SECTION & FOOTER
+       10. SKILLS & TECHNICAL MASTERY SECTION (#skills)
+       ======================================================== */
+    .skills-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .skill-category-card {
+      background: rgba(18, 18, 26, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 30px 26px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #ff2a54, transparent);
+      opacity: 0.6;
+    }
+
+    .skill-category-card:hover {
+      background: rgba(26, 26, 38, 0.95);
+      border-color: rgba(255, 42, 84, 0.45);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 42, 84, 0.25);
+    }
+
+    .skill-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .skill-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(255, 42, 84, 0.12);
+      border: 1px solid var(--crimson-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 15px rgba(255, 42, 84, 0.25);
+    }
+
+    .skill-category-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+
+    .skill-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .skill-item-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skill-item-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .skill-name {
+      color: #e4e4e7;
+      font-weight: 600;
+    }
+
+    .skill-pct {
+      color: var(--crimson-neon);
+      font-weight: 800;
+    }
+
+    .skill-bar-track {
+      width: 100%;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #ff2a54, #ff6b87);
+      box-shadow: 0 0 10px rgba(255, 42, 84, 0.7);
+      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* ========================================================
+       11. CONTACT SECTION & FOOTER
        ======================================================== */
     .contact-cta-card {
       background: linear-gradient(135deg, rgba(25, 25, 36, 0.8), rgba(12, 12, 18, 0.95));
@@ -2841,7 +2968,173 @@
     </section>
 
     <!-- ========================================================
-         8. CONTACT SECTION
+         8. SKILLS & TECHNICAL MASTERY SECTION (Connected to Navbar "Skills"!)
+         ======================================================== -->
+    <section class="section-container" id="skills">
+      <div class="section-header-block slide-up">
+        <span class="section-tagline">CORE CAPABILITIES</span>
+        <h2 class="section-main-title scramble-text" data-original="SKILLS & TECH STACK.">SKILLS & TECH STACK.</h2>
+      </div>
+
+      <div class="skills-matrix-grid">
+        
+        <!-- Category 1: Frontend Architecture -->
+        <div class="skill-category-card slide-up delay-1">
+          <div class="skill-card-header">
+            <div class="skill-icon-box">⚡</div>
+            <h3 class="skill-category-title">Frontend Architecture</h3>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">React 18 & Vite</span>
+                <span class="skill-pct">95%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">JavaScript (ES6+ & DOM)</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Tailwind CSS & Glassmorphism</span>
+                <span class="skill-pct">94%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">HTML5 Canvas & Web Audio API</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: Mobile Systems (Android) -->
+        <div class="skill-category-card slide-up delay-2">
+          <div class="skill-card-header">
+            <div class="skill-icon-box">🤖</div>
+            <h3 class="skill-category-title">Mobile Systems & Android</h3>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Kotlin & Modern Architecture</span>
+                <span class="skill-pct">88%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Android SDK 36 Framework</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Foreground Audio Services</span>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">ContentResolver & MediaStore</span>
+                <span class="skill-pct">84%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 84%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Backend & Security -->
+        <div class="skill-category-card slide-up delay-3">
+          <div class="skill-card-header">
+            <div class="skill-icon-box">🛡️</div>
+            <h3 class="skill-category-title">Backend, Security & Fintech</h3>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Python & Flask Microservices</span>
+                <span class="skill-pct">86%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 86%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Web Crypto AES-256-GCM</span>
+                <span class="skill-pct">94%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 94%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Aadhaar Verhoeff Algorithm</span>
+                <span class="skill-pct">96%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 96%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">SQLite & Relational Schemas</span>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: Toolchain & QA -->
+        <div class="skill-category-card slide-up delay-4">
+          <div class="skill-card-header">
+            <div class="skill-icon-box">🚀</div>
+            <h3 class="skill-category-title">Toolchain & Production QA</h3>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Cypress E2E Automated Suites</span>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Git, GitHub & CI/CD Actions</span>
+                <span class="skill-pct">92%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">TOTP 2FA Security Systems</span>
+                <span class="skill-pct">89%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 89%;"></div></div>
+            </div>
+            <div class="skill-item-row">
+              <div class="skill-item-info">
+                <span class="skill-name">Google Search Console & SEO</span>
+                <span class="skill-pct">95%</span>
+              </div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 95%;"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         9. CONTACT SECTION
          ======================================================== -->
     <section class="section-container" id="contact">
       <div class="contact-cta-card slide-up">
@@ -2944,12 +3237,10 @@
       setTimeout(() => {
         preloader.classList.add('opened');
         triggerSlideUp();
-        if (typeof fitHeroName === 'function') fitHeroName();
 
         // Remove overlay after animation completes to free resources
         setTimeout(() => {
           preloader.style.display = 'none';
-          if (typeof fitHeroName === 'function') fitHeroName();
         }, 900);
       }, 250);
     }
@@ -3432,24 +3723,6 @@
 
     window.addEventListener('resize', render3DCarousel);
     render3DCarousel();
-
-    // Auto-fit Hero Name so 'RAVADA KHAGESWARARAO' NEVER clips under any zoom or screen
-    function fitHeroName() {
-      const titleEl = document.querySelector('.hero-title');
-      const nameLast = document.querySelector('.hero-title .name-last');
-      if (!titleEl || !nameLast) return;
-      titleEl.style.fontSize = ''; // reset to CSS clamp
-      const parentWidth = titleEl.parentElement.clientWidth;
-      let currentSize = parseFloat(window.getComputedStyle(titleEl).fontSize);
-      while (nameLast.scrollWidth > parentWidth - 6 && currentSize > 15) {
-        currentSize -= 0.8;
-        titleEl.style.fontSize = currentSize + 'px';
-      }
-    }
-    window.addEventListener('resize', fitHeroName);
-    document.addEventListener('DOMContentLoaded', fitHeroName);
-    setTimeout(fitHeroName, 80);
-    setTimeout(fitHeroName, 400);
 
     // ----------------------------------------------------
     // 7. ACCORDION EXPAND / COLLAPSE
