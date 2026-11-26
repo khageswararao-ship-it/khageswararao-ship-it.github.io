@@ -109,7 +109,8 @@
     }
 
     /* ========================================================
-       1. CINEMATIC PRELOADER SCREEN (Exact Match to Video Frame 1!)
+       1. CINEMATIC INTRO SCREEN WITH START BUTTON & SHUTTER DOORS
+          (Exact Match to Video Frame 1 & crop_1.6s!)
        ======================================================== */
     .preloader {
       position: fixed;
@@ -117,28 +118,92 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: #050508;
       z-index: 999999;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
-      will-change: transform, opacity;
       overflow: hidden;
+      background: #050508;
+      transition: opacity 0.6s ease;
     }
 
-    .preloader.completed {
+    /* Blast Shutter Doors (Split Opening from Center) */
+    .preloader-shutter {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50.5%;
+      background: #050508;
+      z-index: 1;
+      transition: transform 0.85s cubic-bezier(0.77, 0, 0.175, 1);
+      will-change: transform;
+    }
+
+    .shutter-top {
+      top: 0;
+      border-bottom: 1.5px solid rgba(255, 42, 84, 0.4);
+    }
+
+    .shutter-bottom {
+      bottom: 0;
+      border-top: 1.5px solid rgba(255, 42, 84, 0.4);
+    }
+
+    .preloader.opened .shutter-top {
       transform: translateY(-100%);
+    }
+
+    .preloader.opened .shutter-bottom {
+      transform: translateY(100%);
+    }
+
+    /* Laser Line Cutting Across Center Screen */
+    .preloader-laser-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: #ffffff;
+      box-shadow: 0 0 25px #ff2a54, 0 0 50px #ff2a54;
+      z-index: 4;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: width 0.35s ease, opacity 0.2s ease;
       pointer-events: none;
+    }
+
+    .preloader.opening-laser .preloader-laser-line {
+      width: 100%;
+      opacity: 1;
     }
 
     .preloader-bg-glow {
       position: absolute;
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, rgba(255, 42, 84, 0.3) 0%, transparent 70%);
+      width: 750px;
+      height: 750px;
+      background: radial-gradient(circle, rgba(255, 42, 84, 0.35) 0%, transparent 70%);
       filter: blur(80px);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .preloader-content-wrap {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .preloader.opened .preloader-content-wrap {
+      opacity: 0;
+      transform: scale(1.08);
       pointer-events: none;
     }
 
@@ -150,15 +215,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      z-index: 3;
     }
 
     .preloader-counter {
       font-family: var(--font-tech);
-      font-size: 52px;
+      font-size: clamp(48px, 6vw, 76px);
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: -1px;
       color: #ffffff;
-      text-shadow: 0 0 25px rgba(255, 42, 84, 0.8);
+      line-height: 1;
+      text-shadow: 0 0 35px rgba(255, 42, 84, 0.9);
     }
 
     .preloader-badge {
@@ -168,29 +235,30 @@
       text-transform: uppercase;
       color: var(--crimson-neon);
       border: 1px solid var(--crimson-border);
-      padding: 6px 14px;
+      padding: 7px 16px;
       border-radius: 30px;
       background: rgba(255, 42, 84, 0.08);
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.25);
     }
 
     .preloader-center-content {
       text-align: center;
-      max-width: 820px;
+      max-width: 860px;
       padding: 0 24px;
-      z-index: 2;
+      z-index: 3;
     }
 
     .preloader-title {
       font-family: var(--font-tech);
-      font-size: clamp(22px, 4vw, 42px);
+      font-size: clamp(22px, 3.8vw, 42px);
       font-weight: 900;
       letter-spacing: 3px;
       line-height: 1.35;
       text-transform: uppercase;
       color: #ffffff;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(25px);
       animation: preloaderTextIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
     }
 
@@ -207,13 +275,14 @@
     }
 
     .preloader-progress-wrap {
-      width: min(380px, 80vw);
+      width: min(420px, 85vw);
       height: 4px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
       margin: 0 auto;
       overflow: hidden;
       position: relative;
+      transition: opacity 0.4s ease;
     }
 
     .preloader-progress-bar {
@@ -221,7 +290,78 @@
       height: 100%;
       background: linear-gradient(90deg, #ff2a54, #ff6b87);
       box-shadow: 0 0 15px var(--crimson-neon);
-      transition: width 0.05s linear;
+      transition: width 0.04s linear;
+    }
+
+    /* Interactive Start Button (Reveals when Counter reaches 100) */
+    .preloader-start-box {
+      margin-top: 28px;
+      opacity: 0;
+      transform: translateY(20px) scale(0.92);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .preloader-start-box.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .preloader-start-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #ff2a54, #b91c1c);
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      padding: 16px 38px;
+      border-radius: 40px;
+      font-family: var(--font-tech);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 0 40px rgba(255, 42, 84, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.3);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    .preloader-start-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 0 60px rgba(255, 42, 84, 1), inset 0 0 25px rgba(255, 255, 255, 0.5);
+      border-color: #ffffff;
+    }
+
+    .preloader-start-button .btn-glow-pulse {
+      position: absolute;
+      inset: -6px;
+      border-radius: 46px;
+      border: 2px solid #ff2a54;
+      animation: buttonPulse 1.8s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes buttonPulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(1.22); opacity: 0; }
+    }
+
+    .preloader-hint-pulse {
+      font-family: var(--font-tech);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 14px;
+      animation: hintBlink 1.5s infinite alternate;
+    }
+
+    @keyframes hintBlink {
+      0% { opacity: 0.4; }
+      100% { opacity: 0.95; color: var(--crimson-neon); }
     }
 
     /* Live Canvas for Ambient Crimson Fire Embers & Floating Code Glyphs */
@@ -573,7 +713,8 @@
     }
 
     /* ========================================================
-       5. HERO SECTION (Cyberpunk Sci-Fi Glow & Laser HUD)
+       5. HERO SECTION (Cyberpunk Sci-Fi Cockpit HUD & Laser Glow)
+          (Exact Match to Video Frame 6!)
        ======================================================== */
     .hero-section {
       min-height: calc(100vh - 120px);
@@ -581,8 +722,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 40px;
-      padding: 70px 0 60px 0;
+      padding: 60px 48px;
+      margin-top: 24px;
       position: relative;
+      background: rgba(14, 14, 22, 0.88);
+      border: 1.5px solid rgba(255, 42, 84, 0.35);
+      border-radius: 36px;
+      box-shadow: 0 0 60px rgba(255, 42, 84, 0.2), inset 0 0 30px rgba(255, 42, 84, 0.08);
+      overflow: hidden;
     }
 
     .hero-content {
@@ -1244,6 +1391,188 @@
     }
 
     /* ========================================================
+       PROJECTS VIEW SWITCHER & 3x3 HUD MATRIX GRID (Frame 18)
+       ======================================================== */
+    .projects-view-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(18, 18, 28, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 8px;
+      border-radius: 35px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .view-switch-btn {
+      font-family: var(--font-tech);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-gray);
+      background: transparent;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .view-switch-btn.active {
+      color: #ffffff;
+      background: linear-gradient(135deg, #ff2a54, #b91c1c);
+      box-shadow: 0 0 20px rgba(255, 42, 84, 0.6);
+    }
+
+    /* 3x3 Cyber HUD Project Grid (Exact Match to Video Frame 18!) */
+    .projects-hud-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-hud-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .projects-hud-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hud-grid-card {
+      background: rgba(18, 18, 28, 0.94);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hud-grid-card:hover {
+      border-color: rgba(255, 42, 84, 0.7);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 42, 84, 0.35);
+    }
+
+    .hud-card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .hud-card-number {
+      font-family: var(--font-tech);
+      font-size: 26px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.18);
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+    }
+
+    .hud-grid-card:hover .hud-card-number {
+      color: var(--crimson-neon);
+      text-shadow: 0 0 15px var(--crimson-neon);
+    }
+
+    .hud-card-badge-pill {
+      font-family: var(--font-tech);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--crimson-neon);
+      border: 1px solid var(--crimson-border);
+      background: rgba(255, 42, 84, 0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .hud-card-thumb-wrap {
+      width: 100%;
+      height: 160px;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      background: #0a0a12;
+      margin-bottom: 16px;
+    }
+
+    .hud-card-thumb-wrap img.hud-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hud-grid-card:hover .hud-card-thumb-wrap img.hud-thumb-img {
+      transform: scale(1.06);
+    }
+
+    .hud-card-thumb-logo {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(10, 10, 18, 0.92);
+      border: 1.5px solid var(--crimson-border);
+      padding: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      z-index: 2;
+    }
+
+    .hud-card-thumb-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hud-card-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .hud-card-desc {
+      font-size: 12px;
+      color: var(--text-gray);
+      line-height: 1.55;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .hud-card-tech-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    /* ========================================================
        8. ABOUT ME & HANGING FRAMED PORTRAIT (Frames 44 & 45)
        ======================================================== */
     .about-layout-grid {
@@ -1692,20 +2021,48 @@
   <div id="scroll-progress-bar"></div>
 
   <!-- ========================================================
-       1. CINEMATIC PRELOADER SCREEN (Exact Match to Video Frame 1!)
+       1. CINEMATIC PRELOADER SCREEN WITH INTERACTIVE START BUTTON
+          (Exact Match to Video Frame 1 & crop_1.6s!)
        ======================================================== -->
   <div class="preloader" id="preloader">
-    <div class="preloader-bg-glow"></div>
-    <div class="preloader-top-bar">
-      <div class="preloader-counter" id="preloaderCounter">00%</div>
-      <div class="preloader-badge">SYSTEM INITIALIZATION // 2026</div>
-    </div>
-    <div class="preloader-center-content">
-      <h1 class="preloader-title">
-        THE <span class="highlight-red">DEVELOPER</span> WHO TURNS <span class="highlight-red">IDEAS</span> INTO <span class="highlight-red">SOFTWARE</span>
-      </h1>
-      <div class="preloader-progress-wrap">
-        <div class="preloader-progress-bar" id="preloaderBar"></div>
+    <!-- Blast Shutter Doors (Split Opening from Center) -->
+    <div class="preloader-shutter shutter-top"></div>
+    <div class="preloader-shutter shutter-bottom"></div>
+
+    <!-- Laser Line Cutting Across Center Screen -->
+    <div class="preloader-laser-line" id="preloaderLaserLine"></div>
+
+    <!-- Preloader Main Content -->
+    <div class="preloader-content-wrap" id="preloaderContentWrap">
+      <div class="preloader-bg-glow"></div>
+      
+      <!-- Top Bar: Big Counter & System Badge -->
+      <div class="preloader-top-bar">
+        <div class="preloader-counter" id="preloaderCounter">00</div>
+        <div class="preloader-badge">SYSTEM INITIALIZATION // 2026</div>
+      </div>
+
+      <!-- Center Title, Loading Bar & Interactive START Button -->
+      <div class="preloader-center-content">
+        <h1 class="preloader-title">
+          THE <span class="highlight-red">DEVELOPER</span> WHO TURNS <span class="highlight-red">IDEAS</span> INTO <span class="highlight-red">SOFTWARE</span>
+        </h1>
+
+        <!-- Loading Progress Bar -->
+        <div class="preloader-progress-wrap" id="preloaderProgressWrap">
+          <div class="preloader-progress-bar" id="preloaderBar"></div>
+        </div>
+
+        <!-- Interactive Start Button (Reveals at 100) -->
+        <div class="preloader-start-box" id="preloaderStartBox">
+          <button class="preloader-start-button" id="startPortfolioBtn" onclick="launchPortfolioExperience()">
+            <span class="btn-glow-pulse"></span>
+            <span class="btn-icon">⚡</span>
+            <span class="btn-label">START PORTFOLIO</span>
+            <span class="btn-arrow">▶</span>
+          </button>
+          <div class="preloader-hint-pulse">PRESS ENTER OR CLICK TO START</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1854,8 +2211,22 @@
         <h2 class="section-main-title scramble-text" data-original="PROJECTS.">PROJECTS.</h2>
       </div>
 
-      <!-- Swipe & Drag Interactive Hint Badge -->
+      <!-- Interactive Projects View Switcher (3D Coverflow vs 3x3 HUD Matrix) -->
       <div style="text-align: center;">
+        <div class="projects-view-switcher slide-up delay-1">
+          <button class="view-switch-btn active" id="viewBtn3D" onclick="switchProjectsView('3d')">
+            <span>🪐</span>
+            <span>3D COVERFLOW</span>
+          </button>
+          <button class="view-switch-btn" id="viewBtnHUD" onclick="switchProjectsView('hud')">
+            <span>⚡</span>
+            <span>3x3 HUD MATRIX</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Swipe & Drag Interactive Hint Badge -->
+      <div style="text-align: center;" id="swipeHintWrap">
         <div class="swipe-hint-badge slide-up delay-1">
           <span class="swipe-arrow">←</span>
           <span>SWIPE OR DRAG TO ROTATE PROJECTS</span>
@@ -2089,7 +2460,7 @@
       </div>
 
       <!-- Carousel Navigation Controls & Dots -->
-      <div class="carousel-controls-bar slide-up delay-2">
+      <div class="carousel-controls-bar slide-up delay-2" id="carouselControlsBar">
         <button class="carousel-nav-arrow" onclick="rotate3DCarousel(-1)" aria-label="Previous">←</button>
         <div class="carousel-dots-wrap" id="carouselDots">
           <div class="carousel-dot active" onclick="jumpTo3DCard(0)"></div>
@@ -2100,6 +2471,189 @@
           <div class="carousel-dot" onclick="jumpTo3DCard(5)"></div>
         </div>
         <button class="carousel-nav-arrow" onclick="rotate3DCarousel(1)" aria-label="Next">→</button>
+      </div>
+
+      <!-- ========================================================
+           3x3 CYBER HUD PROJECT GRID (Exact Match to Video Frame 18!)
+           ======================================================== -->
+      <div class="projects-hud-grid" id="projectsHudGrid" style="display: none;">
+        
+        <!-- Card 01: LendSwift -->
+        <div class="hud-grid-card" onclick="openModal('lendswift')">
+          <div>
+            <div class="hud-card-top-row">
+              <span class="hud-card-number">01</span>
+              <span class="hud-card-badge-pill">Fintech Architect</span>
+            </div>
+            <div class="hud-card-thumb-wrap">
+              <img src="assets/lendswift_preview.png" alt="LendSwift Loan Application" class="hud-thumb-img">
+              <div class="hud-card-thumb-logo">
+                <img src="assets/lendswift_logo.svg" alt="LendSwift Official Logo">
+              </div>
+            </div>
+            <h3 class="hud-card-title">LendSwift Loan Wizard</h3>
+            <p class="hud-card-desc">
+              Enterprise 8-step digital lending application tackling the 45% BFSI drop-off rate. Web Crypto AES-256-GCM, Aadhaar Verhoeff checksum algorithm, PAN entity validation, and reducing-balance EMI engine.
+            </p>
+            <div class="hud-card-tech-chips">
+              <span class="tech-chip">React 18</span>
+              <span class="tech-chip">Vite</span>
+              <span class="tech-chip">Zod</span>
+              <span class="tech-chip">AES-256</span>
+            </div>
+          </div>
+          <div class="card-action-btns">
+            <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('lendswift')">SPECS MODAL ↗</button>
+            <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">ECOSYSTEM</a>
+          </div>
+        </div>
+
+        <!-- Card 02: Sankalp HRMS -->
+        <div class="hud-grid-card" onclick="openModal('sankalp')">
+          <div>
+            <div class="hud-card-top-row">
+              <span class="hud-card-number">02</span>
+              <span class="hud-card-badge-pill" style="color:#10b981; border-color:rgba(16,185,129,0.5);">Google Indexed</span>
+            </div>
+            <div class="hud-card-thumb-wrap">
+              <img src="assets/sankalp_preview.png" alt="Sankalp HRMS Enterprise Operations" class="hud-thumb-img">
+              <div class="hud-card-thumb-logo">
+                <img src="assets/sankalp_logo.png" alt="Sankalp HRMS Official Logo">
+              </div>
+            </div>
+            <h3 class="hud-card-title">Sankalp HRMS Suite</h3>
+            <p class="hud-card-desc">
+              Google-indexed workforce operations platform ('sankalp ip khageswararao'). Complete employee lifecycles, punch-in tracking, TOTP security, and Recharts payroll burn analytics.
+            </p>
+            <div class="hud-card-tech-chips">
+              <span class="tech-chip">React 18</span>
+              <span class="tech-chip">Tailwind</span>
+              <span class="tech-chip">Recharts</span>
+              <span class="tech-chip">TOTP Security</span>
+            </div>
+          </div>
+          <div class="card-action-btns">
+            <a href="https://sankalp-frontend-kohl.vercel.app" target="_blank" class="btn-card btn-card-launch" onclick="event.stopPropagation()">LIVE APP ↗</a>
+            <a href="https://github.com/khageswararao-ship-it/SANKALP_FRONTEND" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+          </div>
+        </div>
+
+        <!-- Card 03: Harbour Link Radar -->
+        <div class="hud-grid-card" onclick="openModal('harbourlink')">
+          <div>
+            <div class="hud-card-top-row">
+              <span class="hud-card-number">03</span>
+              <span class="hud-card-badge-pill">Maritime Telemetry</span>
+            </div>
+            <div class="hud-card-thumb-wrap">
+              <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Radar" class="hud-thumb-img">
+              <div class="hud-card-thumb-logo">
+                <img src="assets/harbourlink_logo.svg" alt="Harbour Link Official Logo">
+              </div>
+            </div>
+            <h3 class="hud-card-title">Harbour Link Radar</h3>
+            <p class="hud-card-desc">
+              Zero-dependency maritime transit portal with live AIS radar sweep simulation, vessel tracking telemetry, terminal load indicators, and 4-step ticket booking with turnstile QR passes.
+            </p>
+            <div class="hud-card-tech-chips">
+              <span class="tech-chip">HTML5 Canvas</span>
+              <span class="tech-chip">AIS Radar</span>
+              <span class="tech-chip">Telemetry</span>
+            </div>
+          </div>
+          <div class="card-action-btns">
+            <a href="https://khageswararao-ship-it.github.io/harbour-link" target="_blank" class="btn-card btn-card-launch" onclick="event.stopPropagation()">LIVE APP ↗</a>
+            <a href="https://github.com/khageswararao-ship-it/harbour-link" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+          </div>
+        </div>
+
+        <!-- Card 04: Native Audio Player -->
+        <div class="hud-grid-card" onclick="openModal('musicplayer')">
+          <div>
+            <div class="hud-card-top-row">
+              <span class="hud-card-number">04</span>
+              <span class="hud-card-badge-pill" style="color:#fbbf24; border-color:rgba(251,191,36,0.5);">Native Android</span>
+            </div>
+            <div class="hud-card-thumb-wrap">
+              <img src="assets/musicplayer_preview.png" alt="Native Android Offline Music Player" class="hud-thumb-img">
+              <div class="hud-card-thumb-logo">
+                <img src="assets/musicplayer_logo.png" alt="Kotlin Music Player Official Logo">
+              </div>
+            </div>
+            <h3 class="hud-card-title">Native Audio Player</h3>
+            <p class="hud-card-desc">
+              Offline Android music player built in Kotlin targeting Android SDK 36. Background Android Foreground Service (MusicService.kt) and dynamic MediaStore ContentResolver scanning.
+            </p>
+            <div class="hud-card-tech-chips">
+              <span class="tech-chip">Kotlin</span>
+              <span class="tech-chip">SDK 36</span>
+              <span class="tech-chip">Foreground Service</span>
+            </div>
+          </div>
+          <div class="card-action-btns">
+            <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('musicplayer')">VIEW ARCHITECTURE</button>
+            <a href="https://github.com/khageswararao-ship-it/Music_Player" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+          </div>
+        </div>
+
+        <!-- Card 05: Premium Pay -->
+        <div class="hud-grid-card" onclick="openModal('premiumpay')">
+          <div>
+            <div class="hud-card-top-row">
+              <span class="hud-card-number">05</span>
+              <span class="hud-card-badge-pill" style="color:#00F5D4; border-color:rgba(0,245,212,0.5);">Neo-Bank & Real UPI</span>
+            </div>
+            <div class="hud-card-thumb-wrap">
+              <img src="assets/premiumpay_preview.png" alt="Premium Pay Neo-Bank Showcase" class="hud-thumb-img">
+              <div class="hud-card-thumb-logo">
+                <img src="assets/premiumpay_logo.svg" alt="Premium Pay Official Logo">
+              </div>
+            </div>
+            <h3 class="hud-card-title">Premium Pay Neo-Bank</h3>
+            <p class="hud-card-desc">
+              Enterprise zero-branch neo-banking and real UPI platform. Biometric fingerprint touch authentication, 4-digit device lock PIN, dual-SIM binding, dynamic QR generation, and soundbox voice confirmation.
+            </p>
+            <div class="hud-card-tech-chips">
+              <span class="tech-chip">Biometric PIN</span>
+              <span class="tech-chip">UPI Engine</span>
+              <span class="tech-chip">Soundbox Audio</span>
+            </div>
+          </div>
+          <div class="card-action-btns">
+            <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('premiumpay')">SYSTEM MODAL ↗</button>
+            <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">ECOSYSTEM</a>
+          </div>
+        </div>
+
+        <!-- Card 06: Blood Donation Portal -->
+        <div class="hud-grid-card" onclick="openModal('blooddonation')">
+          <div>
+            <div class="hud-card-top-row">
+              <span class="hud-card-number">06</span>
+              <span class="hud-card-badge-pill" style="color:#f43f5e; border-color:rgba(244,63,94,0.5);">Healthcare Backend</span>
+            </div>
+            <div class="hud-card-thumb-wrap">
+              <img src="assets/bloodbank_preview.png" alt="Blood Bank & Donor Portal" class="hud-thumb-img">
+              <div class="hud-card-thumb-logo">
+                <img src="assets/bloodbank_logo.svg" alt="Blood Bank Official Logo">
+              </div>
+            </div>
+            <h3 class="hud-card-title">Blood Donation Portal</h3>
+            <p class="hud-card-desc">
+              Full-stack healthcare web application managing regional blood inventory levels, recipient matching algorithms, donor scheduling, and role-based access control.
+            </p>
+            <div class="hud-card-tech-chips">
+              <span class="tech-chip">Python</span>
+              <span class="tech-chip">Flask</span>
+              <span class="tech-chip">SQLite</span>
+            </div>
+          </div>
+          <div class="card-action-btns">
+            <button class="btn-card btn-card-launch" onclick="event.stopPropagation(); openModal('blooddonation')">EXPLORE SYSTEM</button>
+            <a href="https://github.com/khageswararao-ship-it" target="_blank" class="btn-card btn-card-info" onclick="event.stopPropagation()">GITHUB</a>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -2361,28 +2915,106 @@
     }, { passive: true });
 
     // ----------------------------------------------------
-    // 1. CINEMATIC PRELOADER ANIMATION (00% -> 100%)
+    // 1. CINEMATIC PRELOADER WITH START BUTTON & SHUTTER SPLIT
     // ----------------------------------------------------
     const preloader = document.getElementById('preloader');
     const counterEl = document.getElementById('preloaderCounter');
     const barEl = document.getElementById('preloaderBar');
+    const progressWrapEl = document.getElementById('preloaderProgressWrap');
+    const startBoxEl = document.getElementById('preloaderStartBox');
+    const laserLineEl = document.getElementById('preloaderLaserLine');
 
     let currentProgress = 0;
     const progressInterval = setInterval(() => {
-      const increment = Math.floor(Math.random() * 8) + 3;
+      const increment = Math.floor(Math.random() * 8) + 4;
       currentProgress = Math.min(100, currentProgress + increment);
       
-      counterEl.innerText = (currentProgress < 10 ? '0' : '') + currentProgress + '%';
+      counterEl.innerText = (currentProgress < 10 ? '0' : '') + currentProgress;
       barEl.style.width = currentProgress + '%';
 
       if (currentProgress >= 100) {
         clearInterval(progressInterval);
+        counterEl.innerText = '100';
+        
+        // Reveal the Start Button with smooth entrance
         setTimeout(() => {
-          preloader.classList.add('completed');
-          triggerSlideUp();
-        }, 350);
+          if (progressWrapEl) progressWrapEl.style.opacity = '0.35';
+          if (startBoxEl) startBoxEl.classList.add('visible');
+        }, 150);
       }
-    }, 45);
+    }, 35);
+
+    let portfolioLaunched = false;
+    function launchPortfolioExperience() {
+      if (portfolioLaunched) return;
+      portfolioLaunched = true;
+
+      // Play synthesized futuristic cyber audio chime via Web Audio API
+      playCyberLaunchAudio();
+
+      // Trigger laser slice effect across screen
+      if (laserLineEl) {
+        preloader.classList.add('opening-laser');
+      }
+
+      // 250ms later, blast shutters slide apart to reveal portfolio!
+      setTimeout(() => {
+        preloader.classList.add('opened');
+        triggerSlideUp();
+
+        // Remove overlay after animation completes to free resources
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 900);
+      }, 250);
+    }
+
+    // Keyboard support: Press Enter or Space to launch when ready
+    window.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !portfolioLaunched && currentProgress >= 100) {
+        launchPortfolioExperience();
+      }
+    });
+
+    // Synthesized futuristic audio chime using Web Audio API (zero external files!)
+    function playCyberLaunchAudio() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        if (ctx.state === 'suspended') ctx.resume();
+
+        const now = ctx.currentTime;
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = 'sawtooth';
+        osc2.type = 'sine';
+
+        // Sweep frequencies upwards (140Hz -> 720Hz)
+        osc1.frequency.setValueAtTime(140, now);
+        osc1.frequency.exponentialRampToValueAtTime(720, now + 0.45);
+
+        osc2.frequency.setValueAtTime(280, now);
+        osc2.frequency.exponentialRampToValueAtTime(1440, now + 0.5);
+
+        gain.gain.setValueAtTime(0.01, now);
+        gain.gain.linearRampToValueAtTime(0.22, now + 0.15);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + 0.75);
+        osc2.stop(now + 0.75);
+      } catch (err) {
+        // AudioContext autoplay restrictions handled silently
+      }
+    }
 
     // ----------------------------------------------------
     // 2. ULTRA-OPTIMIZED PARTICLES & AMBIENT GLYPHS CANVAS (60-120 FPS)
@@ -2599,6 +3231,33 @@
     function jumpTo3DCard(index) {
       current3DIndex = index;
       render3DCarousel();
+    }
+
+    // Switch between 3D Perspective Coverflow and 3x3 Cyber HUD Matrix
+    function switchProjectsView(mode) {
+      const btn3D = document.getElementById('viewBtn3D');
+      const btnHUD = document.getElementById('viewBtnHUD');
+      const viewport = document.getElementById('carouselViewport');
+      const controls = document.getElementById('carouselControlsBar');
+      const hint = document.getElementById('swipeHintWrap');
+      const hudGrid = document.getElementById('projectsHudGrid');
+
+      if (mode === '3d') {
+        if (btn3D) btn3D.classList.add('active');
+        if (btnHUD) btnHUD.classList.remove('active');
+        if (viewport) viewport.style.display = 'flex';
+        if (controls) controls.style.display = 'flex';
+        if (hint) hint.style.display = 'block';
+        if (hudGrid) hudGrid.style.display = 'none';
+        render3DCarousel();
+      } else {
+        if (btn3D) btn3D.classList.remove('active');
+        if (btnHUD) btnHUD.classList.add('active');
+        if (viewport) viewport.style.display = 'none';
+        if (controls) controls.style.display = 'none';
+        if (hint) hint.style.display = 'none';
+        if (hudGrid) hudGrid.style.display = 'grid';
+      }
     }
 
     // SWIPE & TOUCH GESTURE ENGINE (Zero-Lag, Scroll-Safe)
