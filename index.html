@@ -213,19 +213,9 @@
       left: 48px;
       right: 48px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       z-index: 3;
-    }
-
-    .preloader-counter {
-      font-family: var(--font-tech);
-      font-size: clamp(48px, 6vw, 76px);
-      font-weight: 900;
-      letter-spacing: -1px;
-      color: #ffffff;
-      line-height: 1;
-      text-shadow: 0 0 35px rgba(255, 42, 84, 0.9);
     }
 
     .preloader-badge {
@@ -235,10 +225,10 @@
       text-transform: uppercase;
       color: var(--crimson-neon);
       border: 1px solid var(--crimson-border);
-      padding: 7px 16px;
+      padding: 8px 20px;
       border-radius: 30px;
       background: rgba(255, 42, 84, 0.08);
-      box-shadow: 0 0 20px rgba(255, 42, 84, 0.25);
+      box-shadow: 0 0 25px rgba(255, 42, 84, 0.3);
     }
 
     .preloader-center-content {
@@ -733,8 +723,8 @@
     }
 
     .hero-content {
-      flex: 1.1;
-      max-width: 620px;
+      flex: 1.25;
+      max-width: 660px;
       z-index: 4;
     }
 
@@ -765,16 +755,23 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(42px, 5.5vw, 68px);
+      font-size: clamp(28px, 4.3vw, 54px);
       font-weight: 900;
-      line-height: 1.02;
-      letter-spacing: -1.5px;
+      line-height: 1.08;
+      letter-spacing: -0.5px;
       text-transform: uppercase;
       background: linear-gradient(180deg, #ffffff 40%, #cbd5e1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       margin-bottom: 14px;
-      text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+      word-break: normal;
+    }
+
+    .hero-title .name-first,
+    .hero-title .name-last {
+      display: block;
+      white-space: nowrap;
     }
 
     .hero-subtitle {
@@ -824,6 +821,25 @@
       overflow: hidden;
     }
 
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: rotate(25deg);
+      animation: btnShimmer 4s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes btnShimmer {
+      0% { left: -60%; }
+      30% { left: 140%; }
+      100% { left: 140%; }
+    }
+
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.02);
       box-shadow: 0 0 40px rgba(255, 42, 84, 0.95);
@@ -854,7 +870,7 @@
       transform: translateY(-3px);
     }
 
-    /* Hero Right: Glowing Avatar Frame + Diagonal Laser Circuit Lines */
+    /* Hero Right: Clean Glowing Cyber Portrait Frame (Zero Lines Across Photo!) */
     .hero-visual {
       flex: 1;
       display: flex;
@@ -870,10 +886,45 @@
       height: min(480px, 110vw);
       border-radius: 28px;
       padding: 12px;
-      background: linear-gradient(135deg, rgba(255, 42, 84, 0.25), rgba(15, 15, 22, 0.9));
-      box-shadow: 0 0 50px rgba(255, 42, 84, 0.45);
-      border: 1.5px solid rgba(255, 42, 84, 0.5);
-      transition: transform 0.4s ease;
+      background: linear-gradient(135deg, rgba(255, 42, 84, 0.18), rgba(15, 15, 22, 0.95));
+      box-shadow: 0 0 50px rgba(255, 42, 84, 0.35);
+      border: 1.5px solid rgba(255, 42, 84, 0.45);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    .hero-portrait-stage:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 0 70px rgba(255, 42, 84, 0.6);
+      border-color: rgba(255, 42, 84, 0.75);
+    }
+
+    /* Sci-Fi HUD Reticle Framing Brackets (Keeps Photo 100% Clear & High-Tech) */
+    .hero-portrait-stage::before,
+    .hero-portrait-stage::after {
+      content: '';
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .hero-portrait-stage::before {
+      top: -3px;
+      left: -3px;
+      border-top: 3px solid var(--crimson-neon);
+      border-left: 3px solid var(--crimson-neon);
+      border-top-left-radius: 12px;
+      filter: drop-shadow(0 0 8px var(--crimson-neon));
+    }
+
+    .hero-portrait-stage::after {
+      bottom: -3px;
+      right: -3px;
+      border-bottom: 3px solid var(--crimson-neon);
+      border-right: 3px solid var(--crimson-neon);
+      border-bottom-right-radius: 12px;
+      filter: drop-shadow(0 0 8px var(--crimson-neon));
     }
 
     .hero-portrait-inner {
@@ -901,59 +952,8 @@
     .portrait-red-aura {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 60%, rgba(255, 42, 84, 0.2) 0%, rgba(5, 5, 8, 0.5) 85%);
+      background: radial-gradient(circle at 50% 60%, rgba(255, 42, 84, 0.16) 0%, rgba(5, 5, 8, 0.45) 85%);
       pointer-events: none;
-    }
-
-    /* Diagonal Neon Laser Circuit Lines */
-    .laser-circuit-svg {
-      position: absolute;
-      top: -30px;
-      left: -50px;
-      width: calc(100% + 100px);
-      height: calc(100% + 60px);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .laser-line {
-      stroke: var(--crimson-neon);
-      stroke-width: 2.5;
-      fill: none;
-      filter: drop-shadow(0 0 10px #ff2a54);
-      stroke-dasharray: 400;
-      animation: laserFlow 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes laserFlow {
-      0% { stroke-dashoffset: 400; }
-      100% { stroke-dashoffset: 0; }
-    }
-
-    /* Floating Tech Spec HUD Badges */
-    .hud-tag {
-      position: absolute;
-      background: rgba(13, 13, 20, 0.88);
-      border: 1px solid var(--crimson-border);
-      padding: 8px 16px;
-      border-radius: 12px;
-      font-family: var(--font-tech);
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #ffffff;
-      box-shadow: 0 0 20px rgba(255, 42, 84, 0.35);
-      backdrop-filter: blur(12px);
-      z-index: 6;
-      animation: floatTag 3s ease-in-out infinite alternate;
-    }
-
-    .hud-tag-1 { top: 40px; left: -35px; animation-delay: 0s; }
-    .hud-tag-2 { bottom: 50px; right: -25px; animation-delay: 1.5s; }
-
-    @keyframes floatTag {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-8px); }
     }
 
     /* ========================================================
@@ -2036,9 +2036,8 @@
     <div class="preloader-content-wrap" id="preloaderContentWrap">
       <div class="preloader-bg-glow"></div>
       
-      <!-- Top Bar: Big Counter & System Badge -->
+      <!-- Top Bar: System Badge (Counter Removed!) -->
       <div class="preloader-top-bar">
-        <div class="preloader-counter" id="preloaderCounter">00</div>
         <div class="preloader-badge">SYSTEM INITIALIZATION // 2026</div>
       </div>
 
@@ -2128,7 +2127,8 @@
         </div>
 
         <h1 class="hero-title slide-up delay-2">
-          RAVADA KHAGESWARARAO
+          <span class="name-first">RAVADA</span>
+          <span class="name-last">KHAGESWARARAO</span>
         </h1>
 
         <div class="hero-subtitle slide-up delay-3">
@@ -2151,20 +2151,9 @@
         </div>
       </div>
 
-      <!-- Right Hero Column: Glowing Portrait + Diagonal Laser Circuits -->
+      <!-- Right Hero Column: Glowing Portrait (Cleaned: Zero Lines, Zero Chips) -->
       <div class="hero-visual slide-up delay-2">
         <div class="hero-portrait-stage" id="heroPortraitStage">
-          
-          <!-- Diagonal Laser Circuit Lines Cutting Across Screen -->
-          <svg class="laser-circuit-svg" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="laser-line" d="M 0 120 L 220 280 L 320 240 L 480 380 L 520 540" />
-            <path class="laser-line" d="M 480 80 L 340 180 L 160 380 L 60 500" style="animation-delay: 1.5s;" />
-          </svg>
-
-          <!-- Floating Tech HUD Chips -->
-          <div class="hud-tag hud-tag-1">⚡ REACT 18 & VITE</div>
-          <div class="hud-tag hud-tag-2">🛡️ KOTLIN SDK 36</div>
-
           <div class="hero-portrait-inner">
             <img src="profile.jpg" alt="Ravada Khageswararao Portrait" class="hero-portrait-img">
             <div class="portrait-red-aura"></div>
@@ -2918,7 +2907,6 @@
     // 1. CINEMATIC PRELOADER WITH START BUTTON & SHUTTER SPLIT
     // ----------------------------------------------------
     const preloader = document.getElementById('preloader');
-    const counterEl = document.getElementById('preloaderCounter');
     const barEl = document.getElementById('preloaderBar');
     const progressWrapEl = document.getElementById('preloaderProgressWrap');
     const startBoxEl = document.getElementById('preloaderStartBox');
@@ -2929,12 +2917,10 @@
       const increment = Math.floor(Math.random() * 8) + 4;
       currentProgress = Math.min(100, currentProgress + increment);
       
-      counterEl.innerText = (currentProgress < 10 ? '0' : '') + currentProgress;
-      barEl.style.width = currentProgress + '%';
+      if (barEl) barEl.style.width = currentProgress + '%';
 
       if (currentProgress >= 100) {
         clearInterval(progressInterval);
-        counterEl.innerText = '100';
         
         // Reveal the Start Button with smooth entrance
         setTimeout(() => {
@@ -2948,9 +2934,6 @@
     function launchPortfolioExperience() {
       if (portfolioLaunched) return;
       portfolioLaunched = true;
-
-      // Play synthesized futuristic cyber audio chime via Web Audio API
-      playCyberLaunchAudio();
 
       // Trigger laser slice effect across screen
       if (laserLineEl) {
@@ -2976,54 +2959,24 @@
       }
     });
 
-    // Synthesized futuristic audio chime using Web Audio API (zero external files!)
-    function playCyberLaunchAudio() {
-      try {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (!AudioCtx) return;
-        const ctx = new AudioCtx();
-        if (ctx.state === 'suspended') ctx.resume();
-
-        const now = ctx.currentTime;
-        const osc1 = ctx.createOscillator();
-        const osc2 = ctx.createOscillator();
-        const gain = ctx.createGain();
-
-        osc1.type = 'sawtooth';
-        osc2.type = 'sine';
-
-        // Sweep frequencies upwards (140Hz -> 720Hz)
-        osc1.frequency.setValueAtTime(140, now);
-        osc1.frequency.exponentialRampToValueAtTime(720, now + 0.45);
-
-        osc2.frequency.setValueAtTime(280, now);
-        osc2.frequency.exponentialRampToValueAtTime(1440, now + 0.5);
-
-        gain.gain.setValueAtTime(0.01, now);
-        gain.gain.linearRampToValueAtTime(0.22, now + 0.15);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.7);
-
-        osc1.connect(gain);
-        osc2.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc1.start(now);
-        osc2.start(now);
-        osc1.stop(now + 0.75);
-        osc2.stop(now + 0.75);
-      } catch (err) {
-        // AudioContext autoplay restrictions handled silently
-      }
-    }
-
     // ----------------------------------------------------
-    // 2. ULTRA-OPTIMIZED PARTICLES & AMBIENT GLYPHS CANVAS (60-120 FPS)
+    // 2. 3D FORWARD-MOVING WARP PARTICLES & GLYPHS (FACING VIEWER)
     // ----------------------------------------------------
     const canvas = document.getElementById('ambient-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const particleCount = 40;
+    const particleCount = 75;
     const glyphs = ['01', '</>', '{ }', '⚡', 'λ', '0x7F', 'React', 'Kotlin'];
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      targetMouseX = (e.clientX - window.innerWidth / 2) * 0.12;
+      targetMouseY = (e.clientY - window.innerHeight / 2) * 0.12;
+    }, { passive: true });
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
@@ -3032,59 +2985,94 @@
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
-    class Ember {
+    class WarpParticle {
       constructor() {
-        this.reset();
+        this.reset(true);
       }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + Math.random() * 40;
-        this.size = Math.random() * 2.2 + 0.8;
-        this.speedY = Math.random() * 1.2 + 0.4;
-        this.speedX = (Math.random() - 0.5) * 0.6;
-        this.opacity = Math.random() * 0.7 + 0.3;
-        this.fade = Math.random() * 0.005 + 0.002;
-        this.color = Math.random() > 0.3 ? '255, 42, 84' : '239, 68, 68';
-        this.isGlyph = Math.random() < 0.18;
+      reset(initial = false) {
+        this.x = (Math.random() - 0.5) * canvas.width * 2.2;
+        this.y = (Math.random() - 0.5) * canvas.height * 2.2;
+        this.z = initial ? Math.random() * 1000 + 1 : 1000;
+        this.pz = this.z;
+        this.speedZ = Math.random() * 4.5 + 3.5;
+        this.baseSize = Math.random() * 1.8 + 0.8;
+        this.color = Math.random() > 0.28 ? '255, 42, 84' : '255, 107, 135';
+        this.isGlyph = Math.random() < 0.16;
         this.glyph = glyphs[Math.floor(Math.random() * glyphs.length)];
       }
       update() {
-        this.y -= this.speedY;
-        this.x += this.speedX;
-        this.opacity -= this.fade;
-        if (this.opacity <= 0 || this.y < -20) {
-          this.reset();
+        this.pz = this.z;
+        this.z -= this.speedZ;
+        if (this.z <= 10) {
+          this.reset(false);
+          this.pz = 1000;
         }
       }
-      draw() {
+      draw(cx, cy) {
+        const focalLength = 320;
+        const k = focalLength / this.z;
+        const screenX = cx + this.x * k;
+        const screenY = cy + this.y * k;
+
+        if (screenX < -80 || screenX > canvas.width + 80 || screenY < -80 || screenY > canvas.height + 80) {
+          this.reset(false);
+          return;
+        }
+
+        const pk = focalLength / this.pz;
+        const prevX = cx + this.x * pk;
+        const prevY = cy + this.y * pk;
+
+        const depthRatio = Math.max(0, Math.min(1, 1 - this.z / 1000));
+        const currentSize = this.baseSize * (1 + depthRatio * 2.2);
+        const alpha = Math.min(0.95, depthRatio * 1.1 + 0.15);
+
         if (this.isGlyph) {
-          ctx.font = '10px "Orbitron", monospace';
-          ctx.fillStyle = `rgba(${this.color}, ${this.opacity * 0.8})`;
-          ctx.fillText(this.glyph, this.x, this.y);
+          const fontSize = Math.max(9, Math.round(11 * (1 + depthRatio * 0.9)));
+          ctx.font = `${fontSize}px "Orbitron", monospace`;
+          ctx.fillStyle = `rgba(${this.color}, ${alpha * 0.85})`;
+          ctx.fillText(this.glyph, screenX, screenY);
         } else {
+          // Dynamic forward streak trail toward viewer
           ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+          ctx.moveTo(prevX, prevY);
+          ctx.lineTo(screenX, screenY);
+          ctx.strokeStyle = `rgba(${this.color}, ${alpha * 0.65})`;
+          ctx.lineWidth = Math.max(1, currentSize * 0.8);
+          ctx.stroke();
+
+          // Leading glowing particle head
+          ctx.beginPath();
+          ctx.arc(screenX, screenY, currentSize, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
+          ctx.shadowColor = '#ff2a54';
+          ctx.shadowBlur = depthRatio * 12;
           ctx.fill();
+          ctx.shadowBlur = 0;
         }
       }
     }
 
     for (let i = 0; i < particleCount; i++) {
-      const p = new Ember();
-      p.y = Math.random() * canvas.height;
-      particles.push(p);
+      particles.push(new WarpParticle());
     }
 
-    function animateEmbers() {
+    function animateWarpParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
+      const cx = canvas.width / 2 + mouseX;
+      const cy = canvas.height / 2 + mouseY;
+
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
-        particles[i].draw();
+        particles[i].draw(cx, cy);
       }
-      requestAnimationFrame(animateEmbers);
+      requestAnimationFrame(animateWarpParticles);
     }
-    animateEmbers();
+    animateWarpParticles();
 
     // ----------------------------------------------------
     // 3. SLIDE-UP ANIMATIONS & HACKER TEXT SCRAMBLER
