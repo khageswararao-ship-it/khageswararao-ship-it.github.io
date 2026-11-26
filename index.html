@@ -964,15 +964,14 @@
       width: 100%;
       height: 100%;
       border-radius: 26px;
-      background: rgba(18, 18, 28, 0.88);
+      background: rgba(18, 18, 28, 0.98);
       border: 1.5px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.65s ease, border-color 0.65s ease, box-shadow 0.65s ease;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      contain: layout style;
       will-change: transform, opacity;
       transform-style: preserve-3d;
       user-select: none;
@@ -1871,11 +1870,7 @@
           <!-- 1. LendSwift Multi-Step Loan Application -->
           <div class="carousel-3d-card" data-index="0" onclick="cardClicked(0)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#0f172a,#1e1b4b);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#ff2a54" stroke-width="1.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-              </div>
+              <img src="assets/lendswift_preview.png" alt="LendSwift 8-Step Loan Application" class="project-cover-img" loading="eager">
               <div class="project-image-overlay"></div>
               
               <!-- OFFICIAL LENDSWIFT LOGO BADGE -->
@@ -1910,14 +1905,7 @@
           <!-- 2. Sankalp HRMS -->
           <div class="carousel-3d-card" data-index="1" onclick="cardClicked(1)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#022c22,#064e3b);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="1.5">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
+              <img src="assets/sankalp_preview.png" alt="Sankalp HRMS Enterprise Operations" class="project-cover-img" loading="eager">
               <div class="project-image-overlay"></div>
 
               <!-- OFFICIAL SANKALP HRMS LOGO BADGE -->
@@ -1951,7 +1939,7 @@
           <!-- 3. Harbour Link Maritime Radar -->
           <div class="carousel-3d-card" data-index="2" onclick="cardClicked(2)">
             <div class="project-image-box">
-              <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Radar" class="project-cover-img" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600'">
+              <img src="assets/harbourlink.jpg" alt="Harbour Link Maritime Radar" class="project-cover-img" loading="eager" onerror="this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=600'">
               <div class="project-image-overlay"></div>
 
               <!-- OFFICIAL HARBOUR LINK LOGO BADGE -->
@@ -1984,13 +1972,7 @@
           <!-- 4. Native Android Offline Music Player -->
           <div class="carousel-3d-card" data-index="3" onclick="cardClicked(3)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#451a03,#78350f);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5">
-                  <path d="M9 18V5l12-2v13"/>
-                  <circle cx="6" cy="18" r="3"/>
-                  <circle cx="18" cy="16" r="3"/>
-                </svg>
-              </div>
+              <img src="assets/musicplayer_preview.png" alt="Native Android Offline Music Player" class="project-cover-img" loading="eager">
               <div class="project-image-overlay"></div>
 
               <!-- Animated Audio Equalizer Bars -->
@@ -2031,7 +2013,7 @@
           <!-- 5. Premium Pay (Real Project Name!) -->
           <div class="carousel-3d-card" data-index="4" onclick="cardClicked(4)">
             <div class="project-image-box">
-              <img src="assets/paypulse.png" alt="Premium Pay Neo-Bank & UPI Showcase" class="project-cover-img">
+              <img src="assets/premiumpay_preview.png" alt="Premium Pay Neo-Bank & UPI Showcase" class="project-cover-img" loading="eager">
               <div class="project-image-overlay"></div>
 
               <!-- Animated Soundbox Voice Equalizer -->
@@ -2073,11 +2055,7 @@
           <!-- 6. Blood Donation Management System -->
           <div class="carousel-3d-card" data-index="5" onclick="cardClicked(5)">
             <div class="project-image-box">
-              <div style="width:100%;height:100%;background:linear-gradient(135deg,#4c0519,#881337);display:flex;align-items:center;justify-content:center;position:relative;">
-                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.5">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-              </div>
+              <img src="assets/bloodbank_preview.png" alt="Blood Bank & Donor Management Portal" class="project-cover-img" loading="eager">
               <div class="project-image-overlay"></div>
 
               <!-- OFFICIAL BLOOD BANK LOGO BADGE -->
@@ -2365,14 +2343,21 @@
        ======================================================== -->
   <script>
     // ----------------------------------------------------
-    // 0. SCROLL PROGRESS BAR
+    // 0. SCROLL PROGRESS BAR (Throttled via requestAnimationFrame)
     // ----------------------------------------------------
     const progressBar = document.getElementById('scroll-progress-bar');
+    let scrollTicking = false;
     window.addEventListener('scroll', () => {
-      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      if (progressBar) progressBar.style.width = scrolled + '%';
+      if (!scrollTicking) {
+        requestAnimationFrame(() => {
+          const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+          if (progressBar) progressBar.style.width = scrolled + '%';
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
     }, { passive: true });
 
     // ----------------------------------------------------
@@ -2400,12 +2385,12 @@
     }, 45);
 
     // ----------------------------------------------------
-    // 2. LIVE PARTICLES & AMBIENT CODE GLYPHS CANVAS
+    // 2. ULTRA-OPTIMIZED PARTICLES & AMBIENT GLYPHS CANVAS (60-120 FPS)
     // ----------------------------------------------------
     const canvas = document.getElementById('ambient-canvas');
     const ctx = canvas.getContext('2d');
     let particles = [];
-    const particleCount = 55;
+    const particleCount = 40;
     const glyphs = ['01', '</>', '{ }', '⚡', 'λ', '0x7F', 'React', 'Kotlin'];
 
     function resizeCanvas() {
@@ -2423,8 +2408,8 @@
         this.x = Math.random() * canvas.width;
         this.y = canvas.height + Math.random() * 40;
         this.size = Math.random() * 2.2 + 0.8;
-        this.speedY = Math.random() * 1.3 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.7;
+        this.speedY = Math.random() * 1.2 + 0.4;
+        this.speedX = (Math.random() - 0.5) * 0.6;
         this.opacity = Math.random() * 0.7 + 0.3;
         this.fade = Math.random() * 0.005 + 0.002;
         this.color = Math.random() > 0.3 ? '255, 42, 84' : '239, 68, 68';
@@ -2448,10 +2433,7 @@
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = `rgba(${this.color}, 0.8)`;
           ctx.fill();
-          ctx.shadowBlur = 0;
         }
       }
     }
@@ -2548,7 +2530,7 @@
     }
 
     // ----------------------------------------------------
-    // 5. TRUE 3D CYLINDRICAL COVERFLOW CAROUSEL WITH SMOOTH SWIPE & DRAG
+    // 5. TRUE 3D CYLINDRICAL COVERFLOW CAROUSEL (ZERO-LAG SWIPE & SCROLL-SAFE)
     // ----------------------------------------------------
     let current3DIndex = 0;
     const cards3D = document.querySelectorAll('.carousel-3d-card');
@@ -2619,24 +2601,25 @@
       render3DCarousel();
     }
 
-    // SWIPE & LIVE DRAG ENGINE (Touch + Mouse + Wheel)
+    // SWIPE & TOUCH GESTURE ENGINE (Zero-Lag, Scroll-Safe)
     let isPointerDown = false;
+    let isHorizontalGesture = null; // null: undetermined, true: carousel horizontal drag, false: page vertical scroll
     let pointerStartX = 0;
     let pointerStartY = 0;
     let dragDistanceX = 0;
     let dragStartTime = 0;
     let hasMovedSignificantly = false;
-    const SWIPE_DIST_THRESHOLD = 35; // px
-    const SWIPE_VELOCITY_THRESHOLD = 0.25; // px/ms
+    const SWIPE_DIST_THRESHOLD = 30; // px
+    const SWIPE_VELOCITY_THRESHOLD = 0.22; // px/ms
 
     function onDragStart(clientX, clientY) {
       isPointerDown = true;
+      isHorizontalGesture = null;
       hasMovedSignificantly = false;
       pointerStartX = clientX;
       pointerStartY = clientY;
       dragDistanceX = 0;
       dragStartTime = performance.now();
-      viewport.classList.add('is-dragging');
     }
 
     function onDragMove(clientX, clientY) {
@@ -2644,13 +2627,27 @@
       const deltaX = clientX - pointerStartX;
       const deltaY = clientY - pointerStartY;
 
-      // If predominantly horizontal, give live visual tilt feedback
-      if (Math.abs(deltaX) > 8) {
+      // Lock direction after slight 8px movement
+      if (isHorizontalGesture === null) {
+        const absX = Math.abs(deltaX);
+        const absY = Math.abs(deltaY);
+        if (absX > 8 || absY > 8) {
+          if (absX > absY * 1.25) {
+            isHorizontalGesture = true;
+            viewport.classList.add('is-dragging');
+          } else {
+            isHorizontalGesture = false; // Vertical page scroll: ignore and never intercept!
+          }
+        }
+      }
+
+      // If user is intentionally swiping carousel horizontally
+      if (isHorizontalGesture === true) {
         hasMovedSignificantly = true;
         dragDistanceX = deltaX;
         if (stage) {
-          const liveTilt = (dragDistanceX / window.innerWidth) * 40;
-          stage.style.transform = `translateX(${dragDistanceX * 0.35}px) rotateY(${liveTilt}deg)`;
+          const liveTilt = (dragDistanceX / window.innerWidth) * 35;
+          stage.style.transform = `translateX(${dragDistanceX * 0.4}px) rotateY(${liveTilt}deg)`;
           stage.style.transition = 'none';
         }
       }
@@ -2661,29 +2658,29 @@
       isPointerDown = false;
       viewport.classList.remove('is-dragging');
 
-      if (stage) {
-        stage.style.transform = '';
-        stage.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
-      }
+      if (isHorizontalGesture === true) {
+        if (stage) {
+          stage.style.transform = '';
+          stage.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+        }
 
-      const duration = performance.now() - dragStartTime;
-      const velocity = Math.abs(dragDistanceX) / Math.max(duration, 1);
+        const duration = performance.now() - dragStartTime;
+        const velocity = Math.abs(dragDistanceX) / Math.max(duration, 1);
 
-      if (Math.abs(dragDistanceX) > SWIPE_DIST_THRESHOLD || velocity > SWIPE_VELOCITY_THRESHOLD) {
-        if (dragDistanceX < 0) {
-          // Swiped Left -> NEXT card
-          rotate3DCarousel(1);
-        } else {
-          // Swiped Right -> PREVIOUS card
-          rotate3DCarousel(-1);
+        if (Math.abs(dragDistanceX) > SWIPE_DIST_THRESHOLD || velocity > SWIPE_VELOCITY_THRESHOLD) {
+          if (dragDistanceX < 0) {
+            rotate3DCarousel(1); // Swipe left -> Next
+          } else {
+            rotate3DCarousel(-1); // Swipe right -> Previous
+          }
         }
       }
 
-      // Reset drag distance after slight delay so click handlers know if drag happened
+      isHorizontalGesture = null;
       setTimeout(() => {
         hasMovedSignificantly = false;
         dragDistanceX = 0;
-      }, 50);
+      }, 60);
     }
 
     // Touch event listeners
@@ -2739,22 +2736,28 @@
     }
 
     // ----------------------------------------------------
-    // 6. 3D CARD PARALLAX TILT PHYSICS
+    // 6. 3D CARD PARALLAX TILT PHYSICS (Zero Layout-Thrash)
     // ----------------------------------------------------
     cards3D.forEach(card => {
+      let cardRect = null;
+      card.addEventListener('mouseenter', () => {
+        cardRect = card.getBoundingClientRect();
+      });
+
       card.addEventListener('mousemove', (e) => {
         if (!card.classList.contains('active-center') || isPointerDown) return;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        if (!cardRect) cardRect = card.getBoundingClientRect();
+        const x = e.clientX - cardRect.left;
+        const y = e.clientY - cardRect.top;
+        const centerX = cardRect.width / 2;
+        const centerY = cardRect.height / 2;
         const rotateX = ((y - centerY) / centerY) * -10;
         const rotateY = ((x - centerX) / centerX) * 10;
         card.style.transform = `translateX(0px) translateZ(160px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
       });
 
       card.addEventListener('mouseleave', () => {
+        cardRect = null;
         if (card.classList.contains('active-center')) {
           card.style.transform = `translateX(0px) translateZ(140px) rotateY(0deg) scale(1.05)`;
         }
